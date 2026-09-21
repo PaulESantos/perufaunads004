@@ -1,0 +1,39 @@
+Package: perufaunads004
+Title: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú
+Version: 0.1.0
+Authors@R: person(given = "Paul E.",
+           family = "Santos Andrade",
+           role = c("aut", "cre", "cph"),
+           email = "paulefrens@gmail.com",
+           comment = c(ORCID = "0000-0002-6635-0375"))
+Description: Herramientas para la reconciliación y validación de nombres científicos 
+    de especies de fauna silvestre amenazada y legalmente protegida en el Perú, 
+    según el Decreto Supremo N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre 
+    Amenazada del Perú (SERFOR, 2018). Proporciona parsing de nombres taxonómicos, 
+    motor de matching jerárquico (exacto, sinónimos, difuso y de género) y acceso estructurado a fichas técnicas de conservación.
+License: MIT + file LICENSE
+URL: https://github.com/PaulESantos/perufaunads004
+BugReports: https://github.com/PaulESantos/perufaunads004/issues
+Depends:
+    R (>= 4.1.0)
+Imports:
+    cli,
+    dplyr (>= 1.1.0),
+    stringdist (>= 0.9.8),
+    stringr (>= 1.5.0),
+    tibble (>= 3.2.0)
+Suggests:
+    ggplot2,
+    knitr,
+    purrr,
+    readxl,
+    rmarkdown,
+    stringi,
+    testthat (>= 3.0.0),
+    tidyr,
+    writexl
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0
