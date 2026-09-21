@@ -1,6 +1,8 @@
 # perufaunads004
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/PaulESantos/perufaunads004/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/perufaunads004)
 <!-- badges: end -->
 
 **perufaunads004** es un paquete de R diseñado para validar, reconciliar y consultar el estado de conservación de especies de **fauna silvestre amenazada y legalmente protegida en el Perú**. Integra de forma unificada:

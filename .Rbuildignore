@@ -3,3 +3,8 @@
 ^data-raw$
 ^\.system_generated$
 ^scratch$
+^\.github$
+^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

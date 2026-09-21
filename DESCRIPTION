@@ -12,7 +12,7 @@ Description: Herramientas para la reconciliación y validación de nombres cient
     Amenazada del Perú (SERFOR, 2018). Proporciona parsing de nombres taxonómicos, 
     motor de matching jerárquico (exacto, sinónimos, difuso y de género) y acceso estructurado a fichas técnicas de conservación.
 License: MIT + file LICENSE
-URL: https://github.com/PaulESantos/perufaunads004
+URL: https://github.com/PaulESantos/perufaunads004, https://paulesantos.github.io/perufaunads004/
 BugReports: https://github.com/PaulESantos/perufaunads004/issues
 Depends:
     R (>= 4.1.0)
