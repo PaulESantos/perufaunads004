@@ -1,0 +1,59 @@
+/* heavily adapted from Desirée De Leon's tidymodels pkgdown CSS & Allison Horst's palmerpenguins */
+/* https://github.com/tidyverse/tidytemplate/blob/master/inst/pkgdown/assets/tidymodels.css */
+
+:root {
+  --bunker: #231F20;       /* Carbón oscuro tipográfico */
+  --ziggurat: #D4E8DC;     /* Verde suave para badges / pills activos */
+  --wedgewood: #008F68;    /* Verde jade institucional de títulos interiores */
+  --rojo-libro: #B81D18;   /* Rojo Libro Rojo / Alerta */
+}
+
+/* spacing ----------------------------------------------- */
+
+.contents h2, .contents h3, .contents h4 {
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-family: 'Abhaya Libre', Georgia, serif;
+  color: var(--wedgewood);
+}
+
+.row {
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .contents {
+    padding-right: 4em;
+  }
+}
+
+/* navbar ----------------------------------------------- */
+
+.navbar {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+/* active behavior for navbar */
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .active > .nav-link {
+  background: var(--ziggurat);
+  color: var(--bunker);
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+/* hover behavior for navbar */
+.navbar-light .navbar-nav .nav-item > .nav-link:hover {
+  background: none;
+  color: var(--rojo-libro);
+}
+
+code a {
+  color: var(--wedgewood);
+  text-decoration: underline;
+}
+
+code a:hover {
+  color: var(--rojo-libro);
+}

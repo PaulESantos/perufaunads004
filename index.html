@@ -5,20 +5,26 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú • perufaunads004</title>
+<title>perufaunads004 R package • perufaunads004</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Jost-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Overpass_Mono-0.4.10/font.css" rel="stylesheet">
+<link href="deps/Abhaya_Libre-0.4.10/font.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú">
-<meta name="description" content="Herramientas para la reconciliación y validación de nombres científicos de especies de fauna silvestre amenazada y legalmente protegida en el Perú, según el Decreto Supremo N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018). Proporciona parsing de nombres taxonómicos, motor de matching jerárquico (exacto, sinónimos, difuso y de género) y acceso estructurado a fichas técnicas de conservación.">
-<meta property="og:description" content="Herramientas para la reconciliación y validación de nombres científicos de especies de fauna silvestre amenazada y legalmente protegida en el Perú, según el Decreto Supremo N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018). Proporciona parsing de nombres taxonómicos, motor de matching jerárquico (exacto, sinónimos, difuso y de género) y acceso estructurado a fichas técnicas de conservación.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<meta property="og:title" content="perufaunads004 R package">
+<meta name="description" content="Herramientas para la reconciliación taxonómica, validación nomenclatural y  consulta del estado de conservación de la fauna silvestre amenazada y protegida en el Perú,  según el D.S. N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018).
+">
+<meta property="og:description" content="Herramientas para la reconciliación taxonómica, validación nomenclatural y  consulta del estado de conservación de la fauna silvestre amenazada y protegida en el Perú,  según el D.S. N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018).
+">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-#fcfbf9" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">perufaunads004</a>
 
@@ -31,12 +37,23 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="active nav-item"><a class="nav-link" href="index.html"><span class="fa fa-home fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="articles/introduction.html">Primeros Pasos</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Funciones</a></li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/comparacion_fauna_2014_2018.html">Comparación de Listas de Fauna Amenazada del Perú (2014 vs. 2018)</a></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos">
+<li><h6 class="dropdown-header" data-toc-skip>Guía Rápida</h6></li>
     <li><a class="dropdown-item" href="articles/introduction.html">Introducción a perufaunads004</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Marco Teórico y Normativo</h6></li>
+    <li><a class="dropdown-item" href="articles/fundamentos_y_criterios_uicn.html">Fundamentos, Criterios UICN y Marco Legal</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Diagnóstico Biológico</h6></li>
+    <li><a class="dropdown-item" href="articles/diagnostico_grupos_taxonomicos.html">Diagnóstico por Grupos Taxonómicos, Ecorregiones y Amenazas</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Análisis Comparativo</h6></li>
+    <li><a class="dropdown-item" href="articles/comparacion_fauna_2014_2018.html">Comparación de Listas de Fauna (2014 vs. 2018)</a></li>
   </ul>
 </li>
       </ul>
@@ -57,93 +74,247 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><strong>perufaunads004</strong> es un paquete de R diseñado para validar, reconciliar y consultar el estado de conservación de especies de <strong>fauna silvestre amenazada y legalmente protegida en el Perú</strong>. Integra de forma unificada:</p>
-<ol style="list-style-type: decimal">
-<li>El <strong>Decreto Supremo N° 004-2014-MINAGRI</strong> (lista oficial de categorización de especies amenazadas de fauna silvestre del Perú).</li>
-<li>El <strong>Libro Rojo de la Fauna Silvestre Amenazada del Perú</strong> (SERFOR, 2018), incluyendo su listado integral y <strong>381 fichas técnicas monográficas</strong> con justificaciones, mapas/distribución, presiones antrópicas y medidas de conservación.</li>
-</ol>
-<p>El motor de reconciliación taxonómica está inspirado en la lógica de <a href="https://github.com/PaulESantos/wcvpmatch" class="external-link"><code>wcvpmatch</code></a>, permitiendo resolver listas provenientes de evaluaciones de campo, inventarios biológicos o consultorías ambientales mediante coincidencia exacta, resolución de sinónimos, matching difuso (<em>fuzzy</em>) y resolución a nivel de género.</p>
+<p><strong><code>perufaunads004</code></strong> es un paquete de R para la <strong>validación taxonómica, reconciliación nomenclatural y consulta integral del estado de conservación de la fauna silvestre amenazada y legalmente protegida en el Perú</strong>.</p>
+<p>Integra de manera rigurosa y unificada: 1. El <strong>Decreto Supremo N° 004-2014-MINAGRI</strong> (lista oficial de clasificación y categorización de especies amenazadas de fauna silvestre legalmente protegidas en el Perú, con 535 taxones). 2. El <strong>Libro Rojo de la Fauna Silvestre Amenazada del Perú</strong> (SERFOR, 2018; 548 pp.), incluyendo la evaluación técnica de 528 taxones y <strong>381 fichas técnicas monográficas</strong> para especies en categorías de amenaza comprobada (<strong>CR</strong>, <strong>EN</strong>, <strong>VU</strong>), con justificaciones biológicas, criterios UICN, mapas de distribución, presiones antrópicas y medidas de conservación.</p>
+<p>El motor de reconciliación taxonómica resuelve listas provenientes de evaluaciones de campo, inventarios biológicos o colecciones científicas mediante coincidencia exacta, resolución de sinónimos históricos, matching difuso (<em>fuzzy</em>) y resolución a nivel de género.</p>
 <hr>
+<div class="section level2">
+<h2 id="contexto-científico-y-marco-legal-del-libro-rojo">Contexto Científico y Marco Legal del Libro Rojo<a class="anchor" aria-label="anchor" href="#contexto-cient%C3%ADfico-y-marco-legal-del-libro-rojo"></a>
+</h2>
+<p>El <em>Libro Rojo de la Fauna Silvestre Amenazada del Perú</em> es el primer documento comprehensivo en el país elaborado siguiendo formalmente las directrices y categorías cuantitativas de la <strong>Unión Internacional para la Conservación de la Naturaleza (UICN, versión 3.1)</strong>. Fue coordinado por el SERFOR con la participación activa de más de 50 científicos agrupados en comités taxonómicos especializados:</p>
+<ul>
+<li>
+<strong>Anfibios</strong> (<em>Alessandro Catenazzi y Rudolf von May</em>): El Perú alberga ~599 especies descritas (Andes tropicales como hotspot mundial). Se documenta una tasa acelerada de descubrimientos (123 spp. en 2001-2010), altísimo endemismo (80% en especies &gt;1000 m), la catástrofe epidemiológica del hongo quítrido (<em>Batrachochytrium dendrobatidis</em> - Bd) en géneros acuáticos (<em>Atelopus</em>, <em>Telmatobius</em>) y una brecha crítica de protección espacial: el <strong>32% de los anfibios peruanos no habita dentro de ninguna Área Natural Protegida del SINANPE</strong>.</li>
+<li>
+<strong>Aves</strong> (<em>Fernando Angulo Pratolongo</em>): Con 1852 especies (3° país a nivel mundial), 106 son endémicas y <strong>39 de ellas están amenazadas (41%)</strong>. Los bosques secos tumbesinos concentran el <strong>13.1% de las aves amenazadas en apenas el 3.54% del territorio nacional</strong>, y la Puna de Junín alberga 3 especies amenazadas que son todas endémicas y están todas <strong>En Peligro Crítico (CR)</strong>.</li>
+<li>
+<strong>Mamíferos</strong> (<em>E. Daniel Cossios Meza</em>): 519 especies consideradas (9.72% de la mastofauna mundial; 4° lugar global y 2° sudamericano), con 70 endémicas y 92 amenazadas. La pérdida o degradación del hábitat por <strong>actividades agrícolas y ganaderas constituye la mayor amenaza nacional (68.5% de especies)</strong>, seguida de la forestería (37.0%) y la cacería de consumo (54.2% en selva baja).</li>
+<li>
+<strong>Reptiles</strong> (<em>José Pérez Z.</em>): 483 especies (4.6% de la riqueza mundial). El 86% de las especies amenazadas fueron evaluadas bajo el <strong>Criterio B1 de la UICN</strong> (extensión de presencia restringida). El <strong>Desierto Costero alberga el 30% de su fauna amenazada</strong> debido a la intensa presión urbana (&gt;50% de peruanos en la costa) y a un notable endemismo (88% de los saurios costeros son endémicos de la costa y 58% endémicos de Perú).</li>
+<li>
+<strong>Invertebrados Terrestres</strong> (<em>José Antonio Ochoa y Diana Silva</em>): Aunque los artrópodos representan el 80% de la biodiversidad animal del planeta y en Perú se estiman más de 41,300 especies de insectos (con más de 3800-4200 mariposas), no estuvieron protegidos hasta el D.S. N° 004-2014, que incorporó por primera vez <strong>21 especies</strong> (17 artrópodos, 1 molusco y 3 onicóforos), incluyendo 2 en Peligro Crítico (<em>Tingomaria hydrophila</em> y <em>Sulcophanaeus actaeon</em>).</li>
+</ul>
+<hr>
+</div>
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
 </h2>
-<p>Puedes cargar y probar el paquete localmente usando <code>devtools</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Instalar dependencias si no las tienes:</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"tibble"</span>, <span class="st">"stringdist"</span>, <span class="st">"stringr"</span>, <span class="st">"cli"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Cargar el paquete localmente:</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">load_all</span><span class="op">(</span><span class="st">"perufaunads004"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Instalar versión de desarrollo desde GitHub:</span></span>
+<span><span class="co"># remotes::install_github("PaulESantos/perufaunads004")</span></span></code></pre></div>
 <hr>
 </div>
 <div class="section level2">
 <h2 id="flujo-de-trabajo-principal">Flujo de Trabajo Principal<a class="anchor" aria-label="anchor" href="#flujo-de-trabajo-principal"></a>
 </h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; ✔ dplyr     1.2.1     ✔ readr     2.2.0</span></span>
+<span><span class="co">#&gt; ✔ forcats   1.0.1     ✔ stringr   1.6.0</span></span>
+<span><span class="co">#&gt; ✔ ggplot2   4.0.3     ✔ tibble    3.3.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.5     ✔ tidyr     1.3.2</span></span>
+<span><span class="co">#&gt; ✔ purrr     1.2.2     </span></span>
+<span><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span><span class="co">#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/perufaunads004" class="external-link">perufaunads004</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="id_1-clasificación-y-parsing-de-nombres-classify_spnames">1. Clasificación y Parsing de Nombres (<code>classify_spnames</code>)<a class="anchor" aria-label="anchor" href="#id_1-clasificaci%C3%B3n-y-parsing-de-nombres-classify_spnames"></a>
 </h3>
-<p>Descompone nombres en género, epíteto específico, subespecie y autoría taxonómica:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/perufaunads004" class="external-link">perufaunads004</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">nombres</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"Tremarctos ornatus (Cuvier, 1825)"</span>,</span>
-<span>  <span class="st">"Telmatobius culeus"</span>,</span>
-<span>  <span class="st">"Lama guanicoe cacsilensis"</span>,</span>
-<span>  <span class="st">"Vultur gryphus Linnaeus 1758"</span></span>
+<p>Descompone nombres de campo en género, epíteto específico, subespecie y autoría taxonómica:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">nombres</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Tremarctos ornatus (F. Cuvier, 1825)"</span>,</span>
+<span>  <span class="st">"Telmatobius culeus (Garman, 1876)"</span>,</span>
+<span>  <span class="st">"Lama guanicoe cacsilensis Lönnberg, 1913"</span>,</span>
+<span>  <span class="st">"Tingomaria hydrophila"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/classify_spnames.html">classify_spnames</a></span><span class="op">(</span><span class="va">nombres</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/classify_spnames.html">classify_spnames</a></span><span class="op">(</span><span class="va">nombres</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 6</span></span>
+<span><span class="co">#&gt;   submitted_name                  clean_name genus species subspecies authorship</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                           &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;     </span></span>
+<span><span class="co">#&gt; 1 Tremarctos ornatus (F. Cuvier,… Tremarcto… Trem… ornatus &lt;NA&gt;       (F. Cuvie…</span></span>
+<span><span class="co">#&gt; 2 Telmatobius culeus (Garman, 18… Telmatobi… Telm… culeus  &lt;NA&gt;       (Garman, …</span></span>
+<span><span class="co">#&gt; 3 Lama guanicoe cacsilensis Lönn… Lama guan… Lama  guanic… cacsilens… Lönnberg,…</span></span>
+<span><span class="co">#&gt; 4 Tingomaria hydrophila           Tingomari… Ting… hydrop… &lt;NA&gt;       &lt;NA&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="id_2-reconciliación-taxonómica-y-categoría-de-conservación-fauna_matching">2. Reconciliación Taxonómica y Categoría de Conservación (<code>fauna_matching</code>)<a class="anchor" aria-label="anchor" href="#id_2-reconciliaci%C3%B3n-taxon%C3%B3mica-y-categor%C3%ADa-de-conservaci%C3%B3n-fauna_matching"></a>
+<h3 id="id_2-reconciliación-taxonómica-jerárquica-fauna_matching">2. Reconciliación Taxonómica Jerárquica (<code>fauna_matching</code>)<a class="anchor" aria-label="anchor" href="#id_2-reconciliaci%C3%B3n-taxon%C3%B3mica-jer%C3%A1rquica-fauna_matching"></a>
 </h3>
-<p>Compara una lista de nombres de campo contra la base oficial peruana:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p>Compara una lista de nombres de campo contra la base oficial peruana y resuelve sinonimias, errores ortográficos y estatus legal:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lista_campo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"Tremarctos ornatus"</span>,    <span class="co"># Exact match (Oso de anteojos - VU)</span></span>
+<span>  <span class="st">"Tremarctos ornatus"</span>,    <span class="co"># Exact match (Oso andino - VU)</span></span>
 <span>  <span class="st">"Oreonax flavicauda"</span>,    <span class="co"># Sinónimo de Lagothrix flavicauda (Mono choro de cola amarilla - CR)</span></span>
-<span>  <span class="st">"Vultor gryphus"</span>,        <span class="co"># Typo para Vultur gryphus (Cóndor andino - EN)</span></span>
+<span>  <span class="st">"Vultor gryphus"</span>,        <span class="co"># Typo corregido por fuzzy matching (Cóndor andino - EN)</span></span>
+<span>  <span class="st">"Podiceps taczanowskii"</span>, <span class="co"># Zambullidor de Junín (CR)</span></span>
 <span>  <span class="st">"Telmatobius sp."</span>,       <span class="co"># Género con múltiples especies amenazadas</span></span>
-<span>  <span class="st">"Panthera leo"</span>           <span class="co"># Especie exótica (no amenazada en Perú)</span></span>
+<span>  <span class="st">"Panthera leo"</span>           <span class="co"># Especie exótica no listada</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">resultado</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fauna_matching.html">fauna_matching</a></span><span class="op">(</span><span class="va">lista_campo</span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">resultado</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">submitted_name</span>, <span class="va">matched_name</span>, <span class="va">match_type</span>, <span class="va">ds004_code</span>, <span class="va">libro_rojo_code</span>, <span class="va">common_name</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">submitted_name</span>, <span class="va">matched_name</span>, <span class="va">match_type</span>, <span class="va">ds004_code</span>, <span class="va">libro_rojo_code</span>, <span class="va">clase</span>, <span class="va">common_name</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 7</span></span>
+<span><span class="co">#&gt;   submitted_name        matched_name match_type ds004_code libro_rojo_code clase</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                 &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; 1 Tremarctos ornatus    Tremarctos … exact      VU         VU              Mamí…</span></span>
+<span><span class="co">#&gt; 2 Oreonax flavicauda    Oreonax fla… exact      CR         &lt;NA&gt;            Mamí…</span></span>
+<span><span class="co">#&gt; 3 Vultor gryphus        Vultur gryp… fuzzy      EN         EN              Aves </span></span>
+<span><span class="co">#&gt; 4 Podiceps taczanowskii Podiceps ta… exact      CR         CR              Aves </span></span>
+<span><span class="co">#&gt; 5 Telmatobius sp.       Telmatobius… genus      Multiple   Multiple        Anfi…</span></span>
+<span><span class="co">#&gt; 6 Panthera leo          &lt;NA&gt;         no_match   &lt;NA&gt;       &lt;NA&gt;            &lt;NA&gt; </span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: common_name &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="id_3-consulta-de-fichas-técnicas-get_ficha">3. Consulta de Fichas Técnicas (<code>get_ficha</code>)<a class="anchor" aria-label="anchor" href="#id_3-consulta-de-fichas-t%C3%A9cnicas-get_ficha"></a>
+<h3 id="id_3-consulta-de-fichas-técnicas-monográficas-get_ficha">3. Consulta de Fichas Técnicas Monográficas (<code>get_ficha</code>)<a class="anchor" aria-label="anchor" href="#id_3-consulta-de-fichas-t%C3%A9cnicas-monogr%C3%A1ficas-get_ficha"></a>
 </h3>
-<p>Permite acceder a los textos monográficos oficiales del SERFOR (2018):</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Obtener como tibble</span></span>
+<p>Recupera el texto monográfico oficial redactado por los especialistas del SERFOR (2018):</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Obtener como tibble estructurado:</span></span>
 <span><span class="va">ficha_oso</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ficha.html">get_ficha</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># O imprimir en formato de consola enriquecido con 'cli':</span></span>
-<span><span class="fu"><a href="reference/get_ficha.html">get_ficha</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, print_details <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># O imprimir en consola con formato enriquecido mediante cli:</span></span>
+<span><span class="fu"><a href="reference/get_ficha.html">get_ficha</a></span><span class="op">(</span><span class="st">"Penelope albipennis"</span>, print_details <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Penelope albipennis Taczanowski, 1878 ───────────────────────────────────────</span></span>
+<span><span class="co">#&gt; ℹ Categoría: CR / C2a, D</span></span>
+<span><span class="co">#&gt; ℹ Taxonomía: Aves | Galliformes | Cracidae</span></span>
+<span><span class="co">#&gt; ℹ Nombre común: Pava de ala blanca, pava aliblanca</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt; ✔ Justificación: Esta ave se encuentra en un hábitat frágil y se distribuye en</span></span>
+<span><span class="co">#&gt;   forma fragmentada en un área de distribución de aproximadamente 1500 km2. El</span></span>
+<span><span class="co">#&gt;   hábitat sufre de intensas sequías y cada cierto tiempo del fenómeno de El</span></span>
+<span><span class="co">#&gt;   Niño con lluvias extremas. El número de individuos adultos y reproductores no</span></span>
+<span><span class="co">#&gt;   supera los 250 ejemplares.</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt; ✔ Distribución: Endémica peruana. Entre los 5º 25’ S - 79º 55’ W al norte y los</span></span>
+<span><span class="co">#&gt;   6º 39’ 25” S - 79º 22’ 30” W al sur, dentro del bosque seco ecuatorial de la</span></span>
+<span><span class="co">#&gt;   región tumbesina, en la vertiente occidental de la cadena principal de los</span></span>
+<span><span class="co">#&gt;   Andes, en los departamentos de Piura, Lambayeque y Cajamarca.</span></span>
+<span><span class="co">#&gt;   Altitudinalmente, se le encuentra principalmente entre los 300 y 1100 m,</span></span>
+<span><span class="co">#&gt;   aunque ha sido reportada hasta los 1400 m.</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt; ! Amenazas: De acuerdo con el Plan Nacional para la Conservación de la Pava</span></span>
+<span><span class="co">#&gt;   Aliblanca (Serfor, 2016), la problemática de la especie incluye caza y</span></span>
+<span><span class="co">#&gt;   captura ilegal por parte de cazadores foráneos y comuneros, deforestación por</span></span>
+<span><span class="co">#&gt;   actividades antrópicas y fragmentación de hábitat. La deforestación se</span></span>
+<span><span class="co">#&gt;   produce por expansión de la frontera agrícola, mala práctica ganadera, tala</span></span>
+<span><span class="co">#&gt;   del bosque natural para leña, carbón, o elaboración de artesanías,</span></span>
+<span><span class="co">#&gt;   concesiones mineras, reducción de los ojos de agua o “jagueyes” debido a</span></span>
+<span><span class="co">#&gt;   sobreexplotación agrícola. La fragmentación de hábitat proviene de la</span></span>
+<span><span class="co">#&gt;   construcción de carreteras e incremento de tránsito vehicular, que generan</span></span>
+<span><span class="co">#&gt;   barreras que afectan la dispersión y promueven el asentamiento de poblaciones</span></span>
+<span><span class="co">#&gt;   humanas. Por otro lado, esta pava posee una serie de características</span></span>
+<span><span class="co">#&gt;   biológicas que incrementan su sensibilidad frente a amenazas externas, como</span></span>
+<span><span class="co">#&gt;   un ciclo que incluye una sola reproducción al año, monogamia y comportamiento</span></span>
+<span><span class="co">#&gt;   territorial, nidada pequeña (uno a tres huevos o polluelos por pareja al</span></span>
+<span><span class="co">#&gt;   año), madurez sexual tardía y una conducta evasiva y susceptible al estrés.</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt; ✔ Conservación: La especie y su hábitat están legalmente protegidos en el</span></span>
+<span><span class="co">#&gt;   Refugio de Vida Silvestre Laquipampa, el Área de Conservación Regional Bosque</span></span>
+<span><span class="co">#&gt;   Moyán-Palacios, el Área de Conservación Regional Bosques Secos de Salitral-</span></span>
+<span><span class="co">#&gt;   Huarmaca y el Área de Conservación Privada Chaparrí. Es manejada en</span></span>
+<span><span class="co">#&gt;   cautiverio, y se contó con un programa de reintroducción entre 2001-2007.</span></span>
+<span><span class="co">#&gt;   Además, cuenta con un Plan Nacional para su Conservación publicado en el 2016</span></span>
+<span><span class="co">#&gt;   y válido entre el 2016 y 2021 (Serfor, 2016). Se sugiere ampliar el</span></span>
+<span><span class="co">#&gt;   conocimiento sobre la especie, su hábitat y el manejo en cautiverio, evitar</span></span>
+<span><span class="co">#&gt;   la caza y captura de ejemplares de pava aliblanca y reducir la deforestación</span></span>
+<span><span class="co">#&gt;   y fragmentación del hábitat (Serfor, 2016). Además, se recomienda continuar</span></span>
+<span><span class="co">#&gt;   con las campañas de educación ambiental (Riva, 2009), asegurar fondos para</span></span>
+<span><span class="co">#&gt;   los zoocriaderos y reflotar el zoocriadero Bárbara D´Achille con apoyo</span></span>
+<span><span class="co">#&gt;   privado, realizar un studbook de los ejemplares en cautiverio,</span></span>
+<span><span class="co">#&gt;   internacionalizar el apoyo a la cría en cautiverio con participación de</span></span>
+<span><span class="co">#&gt;   zoológicos y entidades que permitan su sostenibilidad en el tiempo y</span></span>
+<span><span class="co">#&gt;   confirmar la existencia de la población del Marañón (Mark, 2011).</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt; ℹ Autores: V. R. Díaz, F. Angulo</span></span>
+<span><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 17</span></span>
+<span><span class="co">#&gt;   genus    species    subespecie species_autor class_name order_name family_name</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      </span></span>
+<span><span class="co">#&gt; 1 Penelope albipennis &lt;NA&gt;       Taczanowski,… Aves       Galliform… Cracidae   </span></span>
+<span><span class="co">#&gt; # ℹ 10 more variables: species_name &lt;chr&gt;, ficha_categoria &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   ficha_grupo &lt;chr&gt;, common_name &lt;chr&gt;, justificacion &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   distribucion &lt;chr&gt;, amenazas &lt;chr&gt;, conservacion &lt;chr&gt;, autores &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   canonical_name &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_4-verificación-rápida-de-amenaza-is_threatened">4. Verificación Rápida de Amenaza (<code>is_threatened</code>)<a class="anchor" aria-label="anchor" href="#id_4-verificaci%C3%B3n-r%C3%A1pida-de-amenaza-is_threatened"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/is_threatened.html">is_threatened</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, <span class="st">"Panthera leo"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co"># [1]  TRUE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/is_threatened.html">is_threatened</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tremarctos ornatus"</span>, <span class="st">"Panthera leo"</span>, <span class="st">"Penelope albipennis"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  TRUE FALSE  TRUE</span></span></code></pre></div>
 <hr>
 </div>
 </div>
 <div class="section level2">
 <h2 id="datasets-incluidos">Datasets Incluidos<a class="anchor" aria-label="anchor" href="#datasets-incluidos"></a>
 </h2>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th align="left">Dataset</th>
+<th align="center">Registros</th>
+<th align="left">Descripción</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left"><code>ds004_fauna</code></td>
+<td align="center">535</td>
+<td align="left">Especies legalmente protegidas bajo el D.S. N° 004-2014-MINAGRI con categorías oficiales, nombres comunes y observaciones normativas.</td>
+</tr>
+<tr>
+<td align="left"><code>libro_rojo_especies</code></td>
+<td align="center">528</td>
+<td align="left">Taxones analizados en el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018).</td>
+</tr>
+<tr>
+<td align="left"><code>libro_rojo_fichas</code></td>
+<td align="center">381</td>
+<td align="left">Fichas técnicas completas para especies en categorías de amenaza real (CR, EN, VU) con criterios UICN, justificación, distribución, presiones y autores.</td>
+</tr>
+<tr>
+<td align="left"><code>fauna_backbone</code></td>
+<td align="center">536</td>
+<td align="left">Backbone taxonómico relacional unificado que sincroniza ambas fuentes, indexando sinónimos y flags de disponibilidad.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="viñetas-del-paquete">Viñetas del Paquete<a class="anchor" aria-label="anchor" href="#vi%C3%B1etas-del-paquete"></a>
+</h2>
+<p>El paquete incluye cuatro viñetas temáticas detalladas:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong><a href="https://paulesantos.github.io/perufaunads004/articles/introduction.html">Introducción a perufaunads004</a></strong>: Guía de inicio rápido y flujos de trabajo recomendados para consultorías ambientales y estudios ecológicos.</li>
+<li>
+<strong><a href="https://paulesantos.github.io/perufaunads004/articles/fundamentos_y_criterios_uicn.html">Fundamentos de Conservación, Criterios UICN y Marco Legal del Libro Rojo</a></strong>: Evolución histórica normativa en el Perú (1977-2018), aplicación de los criterios UICN (A-E), el porqué del predominio del Criterio B y la ausencia del Criterio E en la fauna peruana, y resolución de la taxonomía dinámica.</li>
+<li>
+<strong><a href="https://paulesantos.github.io/perufaunads004/articles/diagnostico_grupos_taxonomicos.html">Diagnóstico por Grupos Taxonómicos, Ecorregiones y Amenazas</a></strong>: Análisis exhaustivo por taxones: la crisis del hongo quítrido en anfibios y brechas espaciales en el SINANPE; aves endémicas de bosques secos y la Puna de Junín; mastofauna amenazada por frontera agrícola; sesgos de muestreo en reptiles costeros e inclusión histórica de invertebrados terrestres.</li>
+<li>
+<strong><a href="https://paulesantos.github.io/perufaunads004/articles/comparacion_fauna_2014_2018.html">Comparación de Listas de Fauna Amenazada del Perú (2014 vs. 2018)</a></strong>: Evaluación relacional paso a paso de coincidencias, transiciones de categorías de amenaza, especies añadidas y retiradas entre el D.S. N° 004-2014 y el Libro Rojo 2018.</li>
+</ol>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="licencia-y-cita">Licencia y Cita<a class="anchor" aria-label="anchor" href="#licencia-y-cita"></a>
+</h2>
 <ul>
 <li>
-<code>ds004_fauna</code>: 535 especies categorizadas bajo DS 004-2014-MINAGRI.</li>
+<strong>Licencia</strong>: MIT</li>
 <li>
-<code>libro_rojo_especies</code>: 528 especies listadas en el Libro Rojo (SERFOR, 2018).</li>
-<li>
-<code>libro_rojo_fichas</code>: 381 fichas técnicas con amenazas, distribución geográfica y justificación.</li>
-<li>
-<code>fauna_backbone</code>: Backbone integrado para reconciliación y matching de alta velocidad.</li>
+<strong>Cita recomendada</strong>: Santos Andrade, P. E. (2026). <em>perufaunads004: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú</em>. R package version 0.1.0. <a href="https://github.com/PaulESantos/perufaunads004" class="external-link uri">https://github.com/PaulESantos/perufaunads004</a>
+</li>
 </ul>
 </div>
 </div>
@@ -183,7 +354,8 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Paul E. Santos Andrade <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-6635-0375" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>
+<a href="https://github.com/PaulESantos" class="external-link">Paul E. Santos Andrade</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-6635-0375" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -191,7 +363,10 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/PaulESantos/perufaunads004" class="external-link"><img src="https://codecov.io/gh/PaulESantos/perufaunads004/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://app.codecov.io/gh/PaulESantos/perufaunads004?branch=main" class="external-link"><img src="https://codecov.io/gh/PaulESantos/perufaunads004/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://CRAN.R-project.org/package=perufaunads004" class="external-link"><img src="https://www.r-pkg.org/badges/version/perufaunads004" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=perufaunads004" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/perufaunads004?color=green"></a></li>
+<li><a href="https://cran.r-project.org/package=perufaunads004" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/last-week/perufaunads004?color=green"></a></li>
 </ul>
 </div>
 
@@ -200,7 +375,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Paul E. Santos Andrade.</p>
+  <p>Developed by <a href="https://github.com/PaulESantos" class="external-link">Paul E. Santos Andrade</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

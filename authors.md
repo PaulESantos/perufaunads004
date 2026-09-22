@@ -2,7 +2,8 @@
 
 ## Authors
 
-- **Paul E. Santos Andrade**. Author, maintainer, copyright holder.
+- **[Paul E. Santos Andrade](https://github.com/PaulESantos)**. Author,
+  maintainer, copyright holder.
   [](https://orcid.org/0000-0002-6635-0375)
 
 ## Citation
