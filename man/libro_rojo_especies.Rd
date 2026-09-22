@@ -7,23 +7,49 @@
 \format{
 Un tibble con 528 filas y 7 variables:
 \describe{
-  \item{libro_rojo_id}{Número correlativo.}
-  \item{libro_rojo_categoria}{Nombre de la categoría de amenaza.}
+  \item{libro_rojo_id}{Número correlativo en el catálogo del Libro Rojo.}
+  \item{libro_rojo_categoria}{Nombre completo de la categoría de amenaza asignada.}
   \item{libro_rojo_codigo}{Código de categoría ordenado (CR, EN, VU, NT, DD).}
   \item{grupo_taxonomico}{Grupo taxonómico (Anfibios, Aves, Invertebrados, Mamíferos, Reptiles).}
-  \item{scientific_name_raw}{Nombre científico tal como figura en la publicación.}
-  \item{sinonimo}{Sinónimo o nombre adicional.}
-  \item{scientific_name}{Nombre científico normalizado.}
+  \item{scientific_name_raw}{Nombre científico original tal como fue impreso en el libro.}
+  \item{sinonimo}{Sinónimos o combinaciones previas registradas.}
+  \item{scientific_name}{Nombre científico validado y normalizado para matching computacional.}
 }
 }
 \source{
-Servicio Nacional Forestal y de Fauna Silvestre (SERFOR, 2018).
+SERFOR (2018). *Libro Rojo de la Fauna Silvestre Amenazada del Perú*.
+Primera edición. Servicio Nacional Forestal y de Fauna Silvestre, Lima, Perú. 548 pp.
 }
 \usage{
 libro_rojo_especies
 }
 \description{
-Lista de 528 especies de fauna silvestre amenazada analizadas en el
-Libro Rojo de la Fauna Silvestre Amenazada del Perú.
+Lista de 528 especies de fauna silvestre amenazada analizadas técnicamente en el
+*Libro Rojo de la Fauna Silvestre Amenazada del Perú* (SERFOR, 2018).
+}
+\details{
+El Libro Rojo es el primer documento técnico y científico comprehensivo elaborado
+en el Perú siguiendo formalmente los criterios y categorías de la Lista Roja de la
+Unión Internacional para la Conservación de la Naturaleza (UICN, versión 3.1).
+
+Fue coordinado por la Dirección General de Gestión Sostenible del Patrimonio Forestal
+y de Fauna Silvestre del Servicio Nacional Forestal y de Fauna Silvestre (SERFOR)
+con la participación activa de más de 50 especialistas nacionales e internacionales
+divididos en comités científicos temáticos:
+\itemize{
+  \item **Anfibios**: Coordinado por Alessandro Catenazzi y Rudolf von May.
+  \item **Aves**: Coordinado por Fernando Angulo Pratolongo.
+  \item **Mamíferos**: Coordinado por E. Daniel Cossios Meza.
+  \item **Reptiles**: Coordinado por José Pérez Z.
+  \item **Invertebrados terrestres**: Coordinado por José Antonio Ochoa y Diana Silva.
+}
+
+De las 528 especies analizadas en el libro, 389 están en categorías de amenaza real
+(64 CR, 122 EN, 203 VU), 103 en Casi Amenazado (NT) y 43 en Datos Insuficientes (DD).
+Las especies en CR, EN y VU cuentan con fichas técnicas monográficas detalladas
+compiladas en \code{\link{libro_rojo_fichas}}.
+}
+\seealso{
+\code{\link{ds004_fauna}}, \code{\link{libro_rojo_fichas}}, \code{\link{fauna_backbone}}
 }
 \keyword{datasets}

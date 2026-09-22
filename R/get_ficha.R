@@ -81,23 +81,91 @@ get_ficha <- function(species, print_details = FALSE) {
   if (print_details) {
     for (i in seq_len(nrow(out_df))) {
       row <- out_df[i, ]
-      cli::cli_rule(left = paste0("{.strong ", row$species_name, "}"))
-      cli::cli_inform(c(
-        "i" = paste0("{.bold Categor\u00eda:} ", row$ficha_categoria),
-        "i" = paste0("{.bold Taxonom\u00eda:} ", row$class_name, " | ", row$order_name, " | ", row$family_name),
-        "i" = paste0("{.bold Nombre com\u00fan:} ", ifelse(is.na(row$common_name), "No registrado", row$common_name)),
-        " " = "",
-        "v" = paste0("{.bold Justificaci\u00f3n:} ", row$justificacion),
-        " " = "",
-        "v" = paste0("{.bold Distribuci\u00f3n:} ", row$distribucion),
-        " " = "",
-        "!" = paste0("{.bold Amenazas:} ", row$amenazas),
-        " " = "",
-        "v" = paste0("{.bold Conservaci\u00f3n:} ", row$conservacion),
-        " " = "",
-        "i" = paste0("{.bold Autores:} ", row$autores)
+
+      # 1. Badge de Categoría UICN con color representativo
+      cat_str <- ifelse(is.na(row$ficha_categoria), "Sin categor\u00eda", row$ficha_categoria)
+      cat_badge <- if (grepl("CR", cat_str)) {
+        cli::col_br_red(cli::style_bold(paste0("[CR] ", cat_str)))
+      } else if (grepl("EN", cat_str)) {
+        cli::col_magenta(cli::style_bold(paste0("[EN] ", cat_str)))
+      } else if (grepl("VU", cat_str)) {
+        cli::col_yellow(cli::style_bold(paste0("[VU] ", cat_str)))
+      } else {
+        cli::col_cyan(cli::style_bold(paste0("[\u25cf] ", cat_str)))
+      }
+
+      # 2. Atributos complementarios
+      com_name <- ifelse(is.na(row$common_name) || row$common_name == "", 
+                         "No registrado", row$common_name)
+      grupo_str <- ifelse(is.na(row$ficha_grupo), row$class_name, 
+                          paste0(row$ficha_grupo, " (Clase ", row$class_name, ")"))
+      autor_str <- ifelse(is.na(row$species_autor) || row$species_autor == "", 
+                          "", paste0(" ", row$species_autor))
+
+      # 3. Encabezado principal
+      cli::cli_rule(
+        left = paste0(
+          cli::col_red(cli::style_bold("FICHA T\u00c9CNICA \u2022 ")), 
+          cli::style_bold(cli::style_italic(row$canonical_name))
+        )
+      )
+
+      # 4. Metadatos taxonómicos y de conservación
+      cli::cli_bullets(c(
+        "*" = paste0("{.field Especie:} ", cli::style_bold(cli::style_italic(row$canonical_name)), autor_str),
+        "*" = paste0("{.field Nombre com\u00fan:} ", com_name),
+        "*" = paste0("{.field Categor\u00eda Libro Rojo:} ", cat_badge),
+        "*" = paste0("{.field Jerarqu\u00eda taxon\u00f3mica:} ", grupo_str, " \u2192 ", row$order_name, " \u2192 ", row$family_name)
       ))
-      cli::cli_rule()
+
+      # 5. Secciones temáticas con indentación y estilo
+      if (!is.na(row$justificacion) && nchar(trimws(row$justificacion)) > 0) {
+        cli::cli_text("")
+        cli::cli_alert_info(cli::style_bold("Justificaci\u00f3n T\u00e9cnica de la Categorizaci\u00f3n"))
+        cli::cli_div(theme = list(body = list("margin-left" = 2)))
+        cli::cli_text("{row$justificacion}")
+        cli::cli_end()
+      }
+
+      if (!is.na(row$distribucion) && nchar(trimws(row$distribucion)) > 0) {
+        cli::cli_text("")
+        cli::cli_alert(cli::style_bold("Distribuci\u00f3n Geogr\u00e1fica y Localidades"), class = "alert-info")
+        cli::cli_div(theme = list(body = list("margin-left" = 2)))
+        cli::cli_text("{row$distribucion}")
+        cli::cli_end()
+      }
+
+      if (!is.na(row$amenazas) && nchar(trimws(row$amenazas)) > 0) {
+        cli::cli_text("")
+        cli::cli_alert_danger(cli::style_bold("Principales Amenazas y Presiones Antr\u00f3picas"))
+        cli::cli_div(theme = list(body = list("margin-left" = 2)))
+        cli::cli_text("{row$amenazas}")
+        cli::cli_end()
+      }
+
+      if (!is.na(row$conservacion) && nchar(trimws(row$conservacion)) > 0) {
+        cli::cli_text("")
+        cli::cli_alert_success(cli::style_bold("Medidas de Conservaci\u00f3n y Representatividad en el SINANPE"))
+        cli::cli_div(theme = list(body = list("margin-left" = 2)))
+        cli::cli_text("{row$conservacion}")
+        cli::cli_end()
+      }
+
+      if (!is.na(row$autores) && nchar(trimws(row$autores)) > 0) {
+        cli::cli_text("")
+        cli::cli_bullets(c(
+          "i" = paste0("{.field Especialistas autores:} ", cli::style_italic(row$autores))
+        ))
+      }
+
+      # 6. Cierre de ficha
+      cli::cli_rule(
+        right = cli::col_grey("SERFOR (2018) \u2022 Libro Rojo de la Fauna Silvestre Amenazada del Per\u00fa")
+      )
+
+      if (i < nrow(out_df)) {
+        cli::cli_text("")
+      }
     }
   }
 

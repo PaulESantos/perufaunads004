@@ -1,4 +1,77 @@
 url: https://paulesantos.github.io/perufaunads004/
+
+home:
+  title: perufaunads004 R package
+  description: >
+    Herramientas para la reconciliación taxonómica, validación nomenclatural y 
+    consulta del estado de conservación de la fauna silvestre amenazada y protegida en el Perú, 
+    según el D.S. N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018).
+
+authors:
+  Paul E. Santos Andrade:
+    href: https://github.com/PaulESantos
+
 template:
   bootstrap: 5
+  bslib:
+    font_scale: 1.0
+    base_font:
+      google: "Jost"
+    code_font:
+      google: "Overpass Mono"
+    heading_font:
+      google: "Abhaya Libre"
+    # Paleta cromática inspirada en el Libro Rojo & SERFOR
+    bg: "#fcfbf9"         # Fondo blanco cálido / springwood
+    fg: "#231F20"         # Texto carbón oscuro de alto contraste (15.76)
+    primary: "#B81D18"    # Rojo oficial del Libro Rojo / D.S. 004-2014
+    secondary: "#D4E8DC"  # Verde pálido SERFOR para pills y badges activos
+    link-color: "#008F68" # Verde jade institucional (alto contraste y legibilidad)
+    info: "#D4E8DC"       # Fondo de badges y avisos informativos
+    headings-color: "#008F68" # Verde esmeralda de títulos interiores del Libro Rojo
+    # Navbar
+    navbar-bg: "#fcfbf9"  # Integrado con el fondo del sitio
+    navbar-light-color: "#231F20"
+    navbar-light-hover-color: "#B81D18" # Rojo activo al pasar el cursor
+  # opengraph:
+  #   image:
+  #     src: man/figures/logo.png
+  #     alt: "perufaunads004 - Fauna Silvestre Amenazada del Perú en R"
+  #   twitter:
+  #     creator: "@PaulESantos"
+  #     card: summary
 
+navbar:
+  type: light
+  bg: "#fcfbf9"
+  structure:
+    left:  [home, intro, reference, articles]
+    right: [search, github]
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    intro:
+      text: "Primeros Pasos"
+      href: articles/introduction.html
+    reference:
+      text: "Funciones"
+      href: reference/index.html
+    articles:
+      text: "Artículos"
+      menu:
+        - text: "Guía Rápida"
+        - text: "Introducción a perufaunads004"
+          href: articles/introduction.html
+        - text: "-------"
+        - text: "Marco Teórico y Normativo"
+        - text: "Fundamentos, Criterios UICN y Marco Legal"
+          href: articles/fundamentos_y_criterios_uicn.html
+        - text: "-------"
+        - text: "Diagnóstico Biológico"
+        - text: "Diagnóstico por Grupos Taxonómicos, Ecorregiones y Amenazas"
+          href: articles/diagnostico_grupos_taxonomicos.html
+        - text: "-------"
+        - text: "Análisis Comparativo"
+        - text: "Comparación de Listas de Fauna (2014 vs. 2018)"
+          href: articles/comparacion_fauna_2014_2018.html

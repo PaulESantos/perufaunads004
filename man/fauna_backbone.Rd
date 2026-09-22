@@ -7,30 +7,46 @@
 \format{
 Un tibble con 536 filas y 16 variables:
 \describe{
-  \item{scientific_name}{Nombre científico aceptado.}
+  \item{scientific_name}{Nombre científico aceptado y normalizado.}
   \item{genus}{Género taxonómico.}
   \item{species}{Epíteto específico.}
   \item{subspecies}{Subespecie (si aplica).}
-  \item{clase}{Clase o grupo taxonómico.}
+  \item{clase}{Clase o grupo faunístico.}
   \item{order_name}{Orden taxonómico.}
   \item{family_name}{Familia taxonómica.}
   \item{common_name}{Nombre común más representativo.}
-  \item{synonyms}{Sinónimos conocidos consolidados.}
-  \item{in_ds004}{Lógico indicando presencia en DS 004-2014-MINAGRI.}
-  \item{ds004_code}{Código en DS 004 (CR, EN, VU, NT, DD).}
-  \item{ds004_categoria}{Descripción en DS 004.}
-  \item{in_libro_rojo}{Lógico indicando presencia en Libro Rojo 2018.}
-  \item{libro_rojo_code}{Código en Libro Rojo 2018.}
-  \item{libro_rojo_categoria}{Descripción en Libro Rojo 2018.}
-  \item{has_ficha}{Lógico indicando si cuenta con ficha técnica en Libro Rojo.}
+  \item{synonyms}{Sinónimos históricos y alternativos consolidados.}
+  \item{in_ds004}{Lógico (`TRUE`/`FALSE`) indicando presencia en el D.S. N° 004-2014-MINAGRI.}
+  \item{ds004_code}{Código en D.S. 004 (CR, EN, VU, NT, DD).}
+  \item{ds004_categoria}{Descripción completa de la categoría legal en D.S. 004.}
+  \item{in_libro_rojo}{Lógico (`TRUE`/`FALSE`) indicando presencia en el Libro Rojo 2018.}
+  \item{libro_rojo_code}{Código en Libro Rojo 2018 (CR, EN, VU, NT, DD).}
+  \item{libro_rojo_categoria}{Descripción de categoría en Libro Rojo 2018.}
+  \item{has_ficha}{Lógico (`TRUE`/`FALSE`) indicando si cuenta con ficha técnica monográfica.}
 }
+}
+\source{
+Compilado y unificado a partir de MINAGRI (2014) y SERFOR (2018).
 }
 \usage{
 fauna_backbone
 }
 \description{
-Base taxonómica integrada que unifica el DS 004-2014-MINAGRI y el Libro Rojo
-de la Fauna Silvestre Amenazada del Perú (2018), optimizada para búsquedas y
-reconciliación de alta velocidad.
+Base de datos taxonómica relacional unificada que integra el Decreto Supremo
+N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018).
+}
+\details{
+Este dataset constituye la columna vertebral (*backbone*) del motor de reconciliación
+taxonómica `fauna_matching()`. Permite resolver discrepancias entre ambas listas oficiales:
+\itemize{
+  \item Homogeneización de sinonimias históricas (ej. *Oreonax flavicauda* a *Lagothrix flavicauda*).
+  \item Corrección de exclusiones o precisiones geográficas (ej. el anfibio *Psychophrynella wettsteini*,
+    cuyos registros en Perú se determinaron erróneos y fue excluido del Libro Rojo).
+  \item Indexación cruzada de estatus legal (DS 004) vs estatus técnico (Libro Rojo)
+    y disponibilidad de monografía técnica (`has_ficha`).
+}
+}
+\seealso{
+\code{\link{fauna_matching}}, \code{\link{get_ficha}}, \code{\link{is_threatened}}
 }
 \keyword{datasets}

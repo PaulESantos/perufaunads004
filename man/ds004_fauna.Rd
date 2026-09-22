@@ -7,27 +7,51 @@
 \format{
 Un tibble con 535 filas y 11 variables:
 \describe{
-  \item{ds004_id}{Identificador correlativo del DS 004 (1 a 535).}
-  \item{ds004_categoria_codigo}{Código de categoría ordenado (CR, EN, VU, NT, DD).}
-  \item{ds004_categoria}{Descripción completa de la categoría de amenaza.}
-  \item{clase}{Clase taxonómica (Anfibios, Aves, Invertebrados, Mamíferos, Reptiles).}
+  \item{ds004_id}{Identificador correlativo oficial en el DS 004 (1 a 535).}
+  \item{ds004_categoria_codigo}{Código de categoría ordenado jerárquicamente (CR, EN, VU, NT, DD).}
+  \item{ds004_categoria}{Descripción oficial completa de la categoría de amenaza.}
+  \item{clase}{Clase o grupo taxonómico (Anfibios, Aves, Invertebrados, Mamíferos, Reptiles).}
   \item{genus}{Género taxonómico.}
   \item{species}{Epíteto específico.}
-  \item{subspecies}{Subespecie (si aplica).}
-  \item{scientific_name}{Nombre científico completo.}
-  \item{common_name}{Nombre(s) común(es) registrado(s).}
-  \item{synonym_scientific_name}{Sinónimo(s) registrado(s) en la norma.}
-  \item{observacion}{Notas sobre subespecies u observaciones taxonómicas.}
+  \item{subspecies}{Subespecie (si aplica en la norma).}
+  \item{scientific_name}{Nombre científico completo consignado en el decreto.}
+  \item{common_name}{Nombre(s) común(es) oficial(es) registrado(s) en la norma.}
+  \item{synonym_scientific_name}{Sinónimo(s) científico(s) anotado(s) en el texto legal.}
+  \item{observacion}{Notas técnicas sobre subespecies, poblaciones o estatus taxonómico.}
 }
 }
 \source{
-Ministerio de Agricultura y Riego (MINAGRI, 2014).
+Ministerio de Agricultura y Riego (MINAGRI, 2014). Decreto Supremo N° 004-2014-MINAGRI.
+Diario Oficial El Peruano, 8 de abril de 2014.
 }
 \usage{
 ds004_fauna
 }
 \description{
-Dataset con las 535 especies de fauna silvestre de Perú categorizadas como
-amenazadas por el Decreto Supremo N° 004-2014-MINAGRI.
+Dataset con las 535 especies de fauna silvestre de Perú categorizadas y
+legalmente protegidas por el Estado peruano mediante el Decreto Supremo
+N° 004-2014-MINAGRI, publicado en el diario oficial *El Peruano* el 8 de abril de 2014.
+}
+\details{
+La actualización del D.S. N° 004-2014-MINAGRI representó un hito histórico
+en la legislación ambiental peruana al sustituir el marco del D.S. N° 034-2004-AG.
+Entre sus principales avances destacan:
+\itemize{
+  \item **Inclusión histórica de invertebrados terrestres**: Por primera vez en el Perú
+    se reconoció formalmente a 21 especies de invertebrados (17 artrópodos, 1 molusco y
+    3 onicóforos) dentro de una norma nacional de fauna amenazada.
+  \item **Adopción estandarizada de categorías UICN**: Se emplean las categorías
+    En Peligro Crítico (CR), En Peligro (EN), Vulnerable (VU), Casi Amenazado (NT)
+    y Datos Insuficientes (DD).
+  \item **Principio precautorio**: A diferencia de las listas globales donde NT y DD
+    no son categorías de amenaza en sentido estricto, la normativa peruana las incluyó
+    en el régimen de protección legal para salvaguardar taxones con vacíos de información
+    o en umbrales de declive poblacional.
+  \item **Composición taxonómica**: Comprende 190 aves, 146 anfibios, 124 mamíferos,
+    54 reptiles y 21 invertebrados terrestres.
+}
+}
+\seealso{
+\code{\link{libro_rojo_especies}}, \code{\link{libro_rojo_fichas}}, \code{\link{fauna_backbone}}
 }
 \keyword{datasets}

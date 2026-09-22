@@ -7,33 +7,69 @@
 \format{
 Un tibble con 381 filas y 16 variables:
 \describe{
-  \item{genus}{Género taxonómico.}
+  \item{genus}{Género taxonómico validado.}
   \item{species}{Epíteto específico.}
   \item{subespecie}{Subespecie (si aplica).}
-  \item{species_autor}{Autoría y año taxonómico.}
-  \item{class_name}{Clase taxonómica.}
+  \item{species_autor}{Autoría y año de descripción taxonómica.}
+  \item{class_name}{Clase taxonómica (Amphibia, Aves, Mammalia, Reptilia, Insecta, Arachnida, Diplopoda, Gastropoda, Onychophora).}
   \item{order_name}{Orden taxonómico.}
   \item{family_name}{Familia taxonómica.}
-  \item{species_name}{Nombre científico con autoría.}
-  \item{ficha_categoria}{Categoría y criterios UICN asignados.}
-  \item{ficha_grupo}{Grupo taxonómico.}
-  \item{common_name}{Nombre común registrado.}
-  \item{justificacion}{Justificación de la categorización.}
-  \item{distribucion}{Distribución geográfica y altitudinal.}
-  \item{amenazas}{Principales factores de amenaza.}
-  \item{conservacion}{Estado de conservación y presencia en áreas protegidas.}
-  \item{autores}{Especialistas autores de la ficha.}
-  \item{canonical_name}{Nombre binomial o trinomial normalizado.}
+  \item{species_name}{Nombre científico binomial o trinomial completo con autoría.}
+  \item{ficha_categoria}{Categoría de amenaza y código de criterios UICN asignados (ej. "CR / B1ab(iii)").}
+  \item{ficha_grupo}{Grupo taxonómico (Anfibios, Aves, Invertebrados, Mamíferos, Reptiles).}
+  \item{common_name}{Nombre común vernacular representativo.}
+  \item{justificacion}{Texto íntegro de la justificación técnica de la categorización.}
+  \item{distribucion}{Texto íntegro de la distribución geográfica y altitudinal conocida.}
+  \item{amenazas}{Texto íntegro describiendo las presiones antropogénicas e impactos.}
+  \item{conservacion}{Texto íntegro de las medidas de conservación y representatividad en ANPs.}
+  \item{autores}{Especialistas e investigadores autores de la ficha técnica.}
+  \item{canonical_name}{Nombre científico normalizado en formato binario/trinario para joins computacionales.}
 }
 }
 \source{
-SERFOR (2018). Libro Rojo de la Fauna Silvestre Amenazada del Perú.
+SERFOR (2018). *Libro Rojo de la Fauna Silvestre Amenazada del Perú*.
+Servicio Nacional Forestal y de Fauna Silvestre, Lima, Perú.
 }
 \usage{
 libro_rojo_fichas
 }
 \description{
-Compendio de 381 fichas técnicas monográficas elaboradas por especialistas
-para especies prioritarias de fauna silvestre amenazada del Perú.
+Compendio de 381 fichas técnicas monográficas exhaustivas elaboradas por
+especialistas e investigadores de campo para las especies en situación de amenaza
+comprobada (categorías CR, EN y VU) según el Libro Rojo de SERFOR (2018).
+}
+\details{
+Cada ficha técnica representa una síntesis exhaustiva de la evidencia empírica
+disponible a la fecha de publicación, cubriendo:
+\itemize{
+  \item **Criterios UICN asignados**: Desglose cuantitativo del criterio o combinación
+    de criterios (A, B, C, D) y subcriterios que justifican la categoría. En la fauna
+    peruana destaca el predominio del Criterio B (distribución geográfica restringida:
+    extensión de presencia B1 y área de ocupación B2) y la ausencia del Criterio E
+    (análisis cuantitativo poblacional) debido a la escasez de series temporales.
+  \item **Justificación**: Argumentación biológica, demográfica y biogeográfica.
+  \item **Distribución geográfica y altitudinal**: Localidades tipo, rangos de elevación
+    y ecorregiones peruanas de presencia.
+  \item **Amenazas principales**: Factores antropogénicos directos e indirectos,
+    incluyendo agricultura/ganadería, deforestación, minería aurífera y metálica,
+    contaminación por metales pesados, quitridiomicosis (*Batrachochytrium dendrobatidis*),
+    caza para consumo, tráfico ilegal de mascotas y cambio climático.
+  \item **Conservación y vacíos en el SINANPE**: Presencia en Áreas Naturales Protegidas
+    nacionales (SINANPE), áreas de conservación regional (ACR) o privadas (ACP),
+    evidenciando las brechas espaciales de protección (ej. 32\% de anfibios fuera de ANPs).
+  \item **Autores**: Nombres de los investigadores y taxónomos responsables de la ficha.
+}
+
+Composición por grupo taxonómico (381 fichas en total):
+\itemize{
+  \item Aves: 122 fichas (todas las especies en CR, EN y VU).
+  \item Anfibios: 117 fichas.
+  \item Mamíferos: 92 fichas (todas las especies en CR, EN y VU).
+  \item Reptiles: 31 fichas.
+  \item Invertebrados: 19 fichas.
+}
+}
+\seealso{
+\code{\link{get_ficha}}, \code{\link{ds004_fauna}}, \code{\link{libro_rojo_especies}}
 }
 \keyword{datasets}

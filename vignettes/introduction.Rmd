@@ -10,49 +10,132 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
-## Introducción
+## 1. Presentación del Paquete
 
-El paquete **perufaunads004** facilita la validación taxonómica y la consulta del estado de conservación de especies de fauna silvestre de Perú, integrando el **Decreto Supremo N° 004-2014-MINAGRI** y el **Libro Rojo de la Fauna Silvestre Amenazada del Perú** (SERFOR, 2018).
+El paquete **`perufaunads004`** proporciona un conjunto integrado de herramientas computacionales en R para la **validación taxonómica, reconciliación nomenclatural y consulta del estado de conservación** de las especies de fauna silvestre amenazada y legalmente protegida en el Perú.
+
+Integra de forma unificada los dos instrumentos rectores en la materia:
+1. **Decreto Supremo N° 004-2014-MINAGRI**: La norma jurídica oficial que aprueba la lista de clasificación y categorización de las especies amenazadas de fauna silvestre legalmente protegidas en el país (535 taxones).
+2. **Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018)**: Publicación científica y técnica comprehensiva elaborada por el Servicio Nacional Forestal y de Fauna Silvestre (SERFOR) con comités de especialistas nacionales e internacionales, evaluando 528 taxones y proporcionando **381 fichas técnicas monográficas** con justificaciones, mapas de distribución, presiones antrópicas y medidas de conservación.
 
 ```{r setup}
 library(perufaunads004)
 library(dplyr)
 ```
 
-## Validación y Reconciliación con `fauna_matching`
+---
 
-El núcleo del paquete es `fauna_matching()`, que implementa una jerarquía de matching:
+## 2. Flujo de Trabajo Típico en Estudios de Biodiversidad y Consultoría Ambiental
 
-1. **Coincidencia exacta**: Identifica nombres idénticos a los aceptados.
-2. **Sinónimos**: Resuelve nombres históricos y reubicaciones taxonómicas (por ejemplo, *Oreonax flavicauda* a *Lagothrix flavicauda*).
-3. **Coincidencia difusa (*fuzzy*)**: Corrige errores tipográficos menores utilizando algoritmos de distancia de cadenas de `stringdist`.
-4. **Nivel de género**: Proporciona advertencias contextuales si solo se cuenta con el género (ej. *Telmatobius sp.*).
+El paquete está diseñado para resolver las tareas cotidianas que enfrentan biólogos, consultores ambientales (elaboración de EIA, DIA, PMA), investigadores académicos y gestores del SINANPE (SERNANP).
 
-```{r matching-demo}
-lista_ejemplo <- c(
-  "Tremarctos ornatus",
-  "Oreonax flavicauda",
-  "Vultor gryphus",
-  "Telmatobius culeus",
-  "Panthera onca",
-  "Panthera leo"
+### Paso 1: Parsing y Clasificación de Nombres (`classify_spnames`)
+
+A menudo los inventarios de campo o bases de datos históricas contienen nombres científicos con autorías, años, comillas o epítetos subespecíficos. `classify_spnames()` descompone y estandariza cada componente:
+
+```{r parse-demo}
+nombres_inventario <- c(
+  "Tremarctos ornatus (F. Cuvier, 1825)",
+  "Telmatobius culeus (Garman, 1876)",
+  "Lama guanicoe cacsilensis Lönnberg, 1913",
+  "Penelope albipennis Taczanowski 1878",
+  "Tingomaria hydrophila"
 )
 
-res <- fauna_matching(lista_ejemplo)
-
-res |>
-  select(submitted_name, matched_name, match_type, ds004_code, libro_rojo_code, clase)
+clasificacion <- classify_spnames(nombres_inventario)
+clasificacion |>
+  select(submitted_name, genus, species, subspecies, authorship)
 ```
 
-## Acceso a Fichas Técnicas con `get_ficha`
+---
 
-Para especies que cuentan con ficha técnica en el Libro Rojo (381 especies), se puede extraer la información detallada:
+### Paso 2: Reconciliación y Matching Jerárquico (`fauna_matching`)
+
+El núcleo del paquete es `fauna_matching()`, un motor relacional inspirado en la lógica de `wcvpmatch`. Realiza una búsqueda por niveles:
+1. **Exact match**: Coincidencia directa con el nombre aceptado.
+2. **Synonym match**: Resuelve sinónimos históricos o reubicaciones taxonómicas (por ejemplo, *Oreonax flavicauda* se resuelve a *Lagothrix flavicauda*).
+3. **Fuzzy match**: Corrige errores ortográficos y variantes tipográficas menores mediante distancia de Levenshtein optimizada.
+4. **Genus match**: Alerta si el taxón fue consignado solo a nivel de género (ej. *Telmatobius sp.*) e informa cuántas especies de dicho género están amenazadas.
+
+```{r matching-demo}
+lista_campo <- c(
+  "Tremarctos ornatus",    # Exacto (Oso de anteojos - VU)
+  "Oreonax flavicauda",    # Sinónimo de Lagothrix flavicauda (Mono choro de cola amarilla - CR)
+  "Vultor gryphus",        # Error tipográfico por Vultur gryphus (Cóndor andino - EN)
+  "Telmatobius culeus",    # Rana gigante del Titicaca (CR)
+  "Sulcophanaeus actaeon", # Escarabajo pelotero (CR)
+  "Panthera leo"           # Especie no listada en la fauna amenazada peruana
+)
+
+resultado_matching <- fauna_matching(lista_campo)
+
+resultado_matching |>
+  select(
+    submitted_name,
+    matched_name,
+    match_type,
+    ds004_code,
+    libro_rojo_code,
+    clase,
+    common_name
+  )
+```
+
+---
+
+### Paso 3: Verificación Rápida de Amenaza (`is_threatened`)
+
+Para flujos de filtrado rápido en tablas con miles de registros:
+
+```{r threatened-demo}
+especies_prueba <- c("Tremarctos ornatus", "Panthera leo", "Penelope albipennis", "Columba livia")
+
+is_threatened(especies_prueba)
+```
+
+---
+
+### Paso 4: Acceso a Monografías Oficiales del Libro Rojo (`get_ficha`)
+
+Para las 381 especies en categorías de amenaza comprobada (**CR**, **EN**, **VU**), el paquete incluye el texto completo de las fichas técnicas redactadas por especialistas de campo:
 
 ```{r ficha-demo}
-fc <- get_ficha("Tremarctos ornatus")
-fc |> select(species_name, ficha_categoria, common_name, autores)
+# Consulta de la monografía de la Pava aliblanca (Penelope albipennis)
+ficha_pava <- get_ficha("Penelope albipennis")
+
+cat("Especie:", ficha_pava$species_name, "\n")
+cat("Categoría y Criterios UICN:", ficha_pava$ficha_categoria, "\n")
+cat("Autores:", ficha_pava$autores, "\n\n")
+cat("Distribución:\n", ficha_pava$distribucion, "\n\n")
+cat("Principales Amenazas:\n", ficha_pava$amenazas, "\n")
 ```
+
+También es posible imprimir un reporte formateado directamente en la consola de R mediante `get_ficha(..., print_details = TRUE)`.
+
+---
+
+## 3. Datasets Incluidos en el Paquete
+
+- **`ds004_fauna`**: Los 535 taxones protegidos bajo el D.S. N° 004-2014-MINAGRI, con categorías legales, nombres comunes oficiales y notas normativas.
+- **`libro_rojo_especies`**: Las 528 especies evaluadas en la publicación técnica del SERFOR (2018).
+- **`libro_rojo_fichas`**: Compendio íntegro de 381 fichas técnicas monográficas elaboradas por especialistas con texto de justificación, distribución, amenazas y conservación.
+- **`fauna_backbone`**: Base relacional unificada y optimizada para búsquedas y joins de alta velocidad.
+
+---
+
+## 4. Guía de Viñetas del Paquete
+
+Para profundizar en los aspectos biológicos, metodológicos y normativos, consulte las viñetas especializadas:
+
+1. **[Fundamentos de Conservación, Criterios UICN y Marco Legal del Libro Rojo](fundamentos_y_criterios_uicn.html)**:
+   Explica la evolución normativa en el Perú (1977 a 2018), los 5 criterios de la UICN (A-E), el predominio del Criterio B en la fauna peruana, la ausencia del Criterio E por falta de datos cuantitativos, y la dinámica taxonómica.
+2. **[Diagnóstico por Grupos Taxonómicos, Ecorregiones y Amenazas](diagnostico_grupos_taxonomicos.html)**:
+   Síntesis exhaustiva de la situación de Anfibios (crisis del hongo Bd y brechas en el SINANPE), Aves (endemismos críticos y bosques secos), Mamíferos (matriz de presiones agropecuarias y forestería), Reptiles (sesgos de muestreo por EIA y endemismo costero) e Invertebrados terrestres (primer hito de protección legal).
+3. **[Comparación de Listas de Fauna Amenazada del Perú (2014 vs. 2018)](comparacion_fauna_2014_2018.html)**:
+   Análisis relacional sistemático entre el D.S. N° 004-2014-MINAGRI y el Libro Rojo SERFOR (2018), detallando concordancias, especies retiradas, adiciones y matrices de transición de categorías.

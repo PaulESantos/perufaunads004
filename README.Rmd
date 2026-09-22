@@ -1,0 +1,148 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# perufaunads004
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/perufaunads004/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/PaulESantos/perufaunads004/branch/main/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/perufaunads004?branch=main)
+[![CRAN status](https://www.r-pkg.org/badges/version/perufaunads004)](https://CRAN.R-project.org/package=perufaunads004)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/perufaunads004?color=green)](https://cran.r-project.org/package=perufaunads004)
+[![](https://cranlogs.r-pkg.org/badges/last-week/perufaunads004?color=green)](https://cran.r-project.org/package=perufaunads004)
+<!-- badges: end -->
+
+**`perufaunads004`** es un paquete de R para la **validación taxonómica, reconciliación nomenclatural y consulta integral del estado de conservación de la fauna silvestre amenazada y legalmente protegida en el Perú**.
+
+Integra de manera rigurosa y unificada:
+1. El **Decreto Supremo N° 004-2014-MINAGRI** (lista oficial de clasificación y categorización de especies amenazadas de fauna silvestre legalmente protegidas en el Perú, con 535 taxones).
+2. El **Libro Rojo de la Fauna Silvestre Amenazada del Perú** (SERFOR, 2018; 548 pp.), incluyendo la evaluación técnica de 528 taxones y **381 fichas técnicas monográficas** para especies en categorías de amenaza comprobada (**CR**, **EN**, **VU**), con justificaciones biológicas, criterios UICN, mapas de distribución, presiones antrópicas y medidas de conservación.
+
+El motor de reconciliación taxonómica resuelve listas provenientes de evaluaciones de campo, inventarios biológicos o colecciones científicas mediante coincidencia exacta, resolución de sinónimos históricos, matching difuso (*fuzzy*) y resolución a nivel de género.
+
+---
+
+## Contexto Científico y Marco Legal del Libro Rojo
+
+El *Libro Rojo de la Fauna Silvestre Amenazada del Perú* es el primer documento comprehensivo en el país elaborado siguiendo formalmente las directrices y categorías cuantitativas de la **Unión Internacional para la Conservación de la Naturaleza (UICN, versión 3.1)**. Fue coordinado por el SERFOR con la participación activa de más de 50 científicos agrupados en comités taxonómicos especializados:
+
+- **Anfibios** (*Alessandro Catenazzi y Rudolf von May*): El Perú alberga ~599 especies descritas (Andes tropicales como hotspot mundial). Se documenta una tasa acelerada de descubrimientos (123 spp. en 2001-2010), altísimo endemismo (80% en especies >1000 m), la catástrofe epidemiológica del hongo quítrido (*Batrachochytrium dendrobatidis* - Bd) en géneros acuáticos (*Atelopus*, *Telmatobius*) y una brecha crítica de protección espacial: el **32% de los anfibios peruanos no habita dentro de ninguna Área Natural Protegida del SINANPE**.
+- **Aves** (*Fernando Angulo Pratolongo*): Con 1852 especies (3° país a nivel mundial), 106 son endémicas y **39 de ellas están amenazadas (41%)**. Los bosques secos tumbesinos concentran el **13.1% de las aves amenazadas en apenas el 3.54% del territorio nacional**, y la Puna de Junín alberga 3 especies amenazadas que son todas endémicas y están todas **En Peligro Crítico (CR)**.
+- **Mamíferos** (*E. Daniel Cossios Meza*): 519 especies consideradas (9.72% de la mastofauna mundial; 4° lugar global y 2° sudamericano), con 70 endémicas y 92 amenazadas. La pérdida o degradación del hábitat por **actividades agrícolas y ganaderas constituye la mayor amenaza nacional (68.5% de especies)**, seguida de la forestería (37.0%) y la cacería de consumo (54.2% en selva baja).
+- **Reptiles** (*José Pérez Z.*): 483 especies (4.6% de la riqueza mundial). El 86% de las especies amenazadas fueron evaluadas bajo el **Criterio B1 de la UICN** (extensión de presencia restringida). El **Desierto Costero alberga el 30% de su fauna amenazada** debido a la intensa presión urbana (>50% de peruanos en la costa) y a un notable endemismo (88% de los saurios costeros son endémicos de la costa y 58% endémicos de Perú).
+- **Invertebrados Terrestres** (*José Antonio Ochoa y Diana Silva*): Aunque los artrópodos representan el 80% de la biodiversidad animal del planeta y en Perú se estiman más de 41,300 especies de insectos (con más de 3800-4200 mariposas), no estuvieron protegidos hasta el D.S. N° 004-2014, que incorporó por primera vez **21 especies** (17 artrópodos, 1 molusco y 3 onicóforos), incluyendo 2 en Peligro Crítico (*Tingomaria hydrophila* y *Sulcophanaeus actaeon*).
+
+---
+
+## Instalación
+
+```r
+# Instalar versión de desarrollo desde GitHub:
+# remotes::install_github("PaulESantos/perufaunads004")
+```
+
+---
+
+## Flujo de Trabajo Principal
+
+```{r}
+library(tidyverse)
+library(perufaunads004)
+
+```
+
+### 1. Clasificación y Parsing de Nombres (`classify_spnames`)
+Descompone nombres de campo en género, epíteto específico, subespecie y autoría taxonómica:
+
+```{r}
+nombres <- c(
+  "Tremarctos ornatus (F. Cuvier, 1825)",
+  "Telmatobius culeus (Garman, 1876)",
+  "Lama guanicoe cacsilensis Lönnberg, 1913",
+  "Tingomaria hydrophila"
+)
+
+classify_spnames(nombres)
+```
+
+### 2. Reconciliación Taxonómica Jerárquica (`fauna_matching`)
+Compara una lista de nombres de campo contra la base oficial peruana y resuelve sinonimias, errores ortográficos y estatus legal:
+
+```{r}
+lista_campo <- c(
+  "Tremarctos ornatus",    # Exact match (Oso andino - VU)
+  "Oreonax flavicauda",    # Sinónimo de Lagothrix flavicauda (Mono choro de cola amarilla - CR)
+  "Vultor gryphus",        # Typo corregido por fuzzy matching (Cóndor andino - EN)
+  "Podiceps taczanowskii", # Zambullidor de Junín (CR)
+  "Telmatobius sp.",       # Género con múltiples especies amenazadas
+  "Panthera leo"           # Especie exótica no listada
+)
+
+resultado <- fauna_matching(lista_campo)
+
+resultado |>
+  select(submitted_name, matched_name, match_type, ds004_code, libro_rojo_code, clase, common_name)
+```
+
+### 3. Consulta de Fichas Técnicas Monográficas (`get_ficha`)
+Recupera el texto monográfico oficial redactado por los especialistas del SERFOR (2018):
+
+```{r}
+# Obtener como tibble estructurado:
+ficha_oso <- get_ficha("Tremarctos ornatus")
+
+# O imprimir en consola con formato enriquecido mediante cli:
+get_ficha("Penelope albipennis", print_details = TRUE)
+```
+
+### 4. Verificación Rápida de Amenaza (`is_threatened`)
+
+```{r}
+is_threatened(c("Tremarctos ornatus", "Panthera leo", "Penelope albipennis"))
+
+```
+
+---
+
+## Datasets Incluidos
+
+| Dataset | Registros | Descripción |
+|:---|:---:|:---|
+| `ds004_fauna` | 535 | Especies legalmente protegidas bajo el D.S. N° 004-2014-MINAGRI con categorías oficiales, nombres comunes y observaciones normativas. |
+| `libro_rojo_especies` | 528 | Taxones analizados en el Libro Rojo de la Fauna Silvestre Amenazada del Perú (SERFOR, 2018). |
+| `libro_rojo_fichas` | 381 | Fichas técnicas completas para especies en categorías de amenaza real (CR, EN, VU) con criterios UICN, justificación, distribución, presiones y autores. |
+| `fauna_backbone` | 536 | Backbone taxonómico relacional unificado que sincroniza ambas fuentes, indexando sinónimos y flags de disponibilidad. |
+
+---
+
+## Viñetas del Paquete
+
+El paquete incluye cuatro viñetas temáticas detalladas:
+
+1. **[Introducción a perufaunads004](https://paulesantos.github.io/perufaunads004/articles/introduction.html)**:
+   Guía de inicio rápido y flujos de trabajo recomendados para consultorías ambientales y estudios ecológicos.
+2. **[Fundamentos de Conservación, Criterios UICN y Marco Legal del Libro Rojo](https://paulesantos.github.io/perufaunads004/articles/fundamentos_y_criterios_uicn.html)**:
+   Evolución histórica normativa en el Perú (1977-2018), aplicación de los criterios UICN (A-E), el porqué del predominio del Criterio B y la ausencia del Criterio E en la fauna peruana, y resolución de la taxonomía dinámica.
+3. **[Diagnóstico por Grupos Taxonómicos, Ecorregiones y Amenazas](https://paulesantos.github.io/perufaunads004/articles/diagnostico_grupos_taxonomicos.html)**:
+   Análisis exhaustivo por taxones: la crisis del hongo quítrido en anfibios y brechas espaciales en el SINANPE; aves endémicas de bosques secos y la Puna de Junín; mastofauna amenazada por frontera agrícola; sesgos de muestreo en reptiles costeros e inclusión histórica de invertebrados terrestres.
+4. **[Comparación de Listas de Fauna Amenazada del Perú (2014 vs. 2018)](https://paulesantos.github.io/perufaunads004/articles/comparacion_fauna_2014_2018.html)**:
+   Evaluación relacional paso a paso de coincidencias, transiciones de categorías de amenaza, especies añadidas y retiradas entre el D.S. N° 004-2014 y el Libro Rojo 2018.
+
+---
+
+## Licencia y Cita
+
+- **Licencia**: MIT
+- **Cita recomendada**:
+  Santos Andrade, P. E. (2026). *perufaunads004: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú*. R package version 0.1.0. https://github.com/PaulESantos/perufaunads004

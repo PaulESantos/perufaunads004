@@ -13,3 +13,11 @@ test_that("get_ficha handles species without ficha gracefully", {
   expect_warning(fc <- get_ficha("Especie inexistente 123"))
   expect_equal(nrow(fc), 0)
 })
+
+test_that("get_ficha print_details executes without error", {
+  expect_no_error(
+    fc <- get_ficha("Tremarctos ornatus", print_details = TRUE)
+  )
+  expect_true(nrow(fc) >= 1)
+})
+
