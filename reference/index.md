@@ -2,6 +2,9 @@
 
 ## All functions
 
+- [`ds004_classify_spnames()`](https://paulesantos.github.io/perufaunads004/reference/ds004_classify_spnames.md)
+  [`ds004_classify_names()`](https://paulesantos.github.io/perufaunads004/reference/ds004_classify_spnames.md)
+  : Clasificar y descomponer nombres científicos de especies
 - [`ds004_fauna`](https://paulesantos.github.io/perufaunads004/reference/ds004_fauna.md)
   : Lista de Fauna Silvestre Legalmente Protegida (DS 004-2014-MINAGRI)
 - [`fauna_backbone`](https://paulesantos.github.io/perufaunads004/reference/fauna_backbone.md)

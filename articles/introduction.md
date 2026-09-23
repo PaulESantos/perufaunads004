@@ -38,8 +38,9 @@ PMA), investigadores académicos y gestores del SINANPE (SERNANP).
 
 A menudo los inventarios de campo o bases de datos históricas contienen
 nombres científicos con autorías, años, comillas o epítetos
-subespecíficos. `ds004_classify_spnames()` descompone y estandariza cada
-componente:
+subespecíficos.
+[`ds004_classify_spnames()`](https://paulesantos.github.io/perufaunads004/reference/ds004_classify_spnames.md)
+descompone y estandariza cada componente:
 
 ``` r
 

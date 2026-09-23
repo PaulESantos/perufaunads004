@@ -118,7 +118,7 @@ PMA), investigadores académicos y gestores del SINANPE (SERNANP).</p>
 </h3>
 <p>A menudo los inventarios de campo o bases de datos históricas
 contienen nombres científicos con autorías, años, comillas o epítetos
-subespecíficos. <code>ds004_classify_spnames()</code> descompone y
+subespecíficos. <code><a href="../reference/ds004_classify_spnames.html">ds004_classify_spnames()</a></code> descompone y
 estandariza cada componente:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nombres_inventario</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -129,7 +129,7 @@ estandariza cada componente:</p>
 <span>  <span class="st">"Tingomaria hydrophila"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">clasificacion</span> <span class="op">&lt;-</span> <span class="fu">ds004_classify_spnames</span><span class="op">(</span><span class="va">nombres_inventario</span><span class="op">)</span></span>
+<span><span class="va">clasificacion</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ds004_classify_spnames.html">ds004_classify_spnames</a></span><span class="op">(</span><span class="va">nombres_inventario</span><span class="op">)</span></span>
 <span><span class="va">clasificacion</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">submitted_name</span>, <span class="va">genus</span>, <span class="va">species</span>, <span class="va">subspecies</span>, <span class="va">authorship</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 5</span></span></span>
