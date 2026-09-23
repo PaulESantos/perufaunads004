@@ -2,9 +2,21 @@
 % Please edit documentation in R/fauna_matching.R
 \name{fauna_matching}
 \alias{fauna_matching}
+\alias{ds004_match}
 \title{Reconciliación y validación de nombres taxonómicos de fauna silvestre}
 \usage{
 fauna_matching(
+  query,
+  target_df = NULL,
+  species_col = NULL,
+  max_distance = 1,
+  method = "osa",
+  fuzzy = TRUE,
+  genus_match = TRUE,
+  group = NULL
+)
+
+ds004_match(
   query,
   target_df = NULL,
   species_col = NULL,

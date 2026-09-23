@@ -2,9 +2,12 @@
 % Please edit documentation in R/is_threatened.R
 \name{is_threatened}
 \alias{is_threatened}
+\alias{ds004_is_threatened}
 \title{Verificar si una especie está categorizada como amenazada}
 \usage{
 is_threatened(species, only_threatened = FALSE)
+
+ds004_is_threatened(species, only_threatened = FALSE)
 }
 \arguments{
 \item{species}{Vector de caracteres con nombres científicos de especies.}

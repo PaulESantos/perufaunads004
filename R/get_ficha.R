@@ -171,3 +171,7 @@ get_ficha <- function(species, print_details = FALSE) {
 
   out_df
 }
+
+#' @rdname get_ficha
+#' @export
+ds004_get_ficha <- get_ficha

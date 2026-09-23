@@ -2,9 +2,12 @@
 % Please edit documentation in R/get_ficha.R
 \name{get_ficha}
 \alias{get_ficha}
+\alias{ds004_get_ficha}
 \title{Obtener fichas técnicas del Libro Rojo de la Fauna Silvestre Amenazada}
 \usage{
 get_ficha(species, print_details = FALSE)
+
+ds004_get_ficha(species, print_details = FALSE)
 }
 \arguments{
 \item{species}{Vector de caracteres con uno o más nombres científicos de especies.}

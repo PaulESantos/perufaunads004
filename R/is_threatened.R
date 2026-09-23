@@ -29,3 +29,7 @@ is_threatened <- function(species, only_threatened = FALSE) {
     matched$in_ds004 | matched$in_libro_rojo
   }
 }
+
+#' @rdname is_threatened
+#' @export
+ds004_is_threatened <- is_threatened

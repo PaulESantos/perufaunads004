@@ -329,3 +329,7 @@ fauna_matching <- function(query,
 
   dplyr::bind_rows(results_list)
 }
+
+#' @rdname fauna_matching
+#' @export
+ds004_match <- fauna_matching

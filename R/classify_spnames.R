@@ -29,15 +29,16 @@
 #'   "Vultur gryphus Linnaeus 1758",
 #'   "Puma concolor"
 #' )
-#' classify_spnames(nombres)
+#' ds004_classify_spnames(nombres)
 #'
 #' # Integración con pipes tidyverse
 #' library(tibble)
 #' df <- tibble(sp = c("Lagothrix flavicauda", "Inia geoffrensis"))
-#' df |> classify_spnames(species_col = "sp")
+#' df |> ds004_classify_spnames(species_col = "sp")
 #'
+#' @rdname ds004_classify_spnames
 #' @export
-classify_spnames <- function(data, species_col = NULL) {
+ds004_classify_spnames <- function(data, species_col = NULL) {
   # Manejo si data es data.frame o vector
   if (is.data.frame(data)) {
     if (is.null(species_col)) {
@@ -183,3 +184,10 @@ classify_spnames <- function(data, species_col = NULL) {
     authorship     = vapply(parsed_list, `[[`, "authorship", FUN.VALUE = character(1))
   )
 }
+
+#' @rdname ds004_classify_spnames
+#' @export
+ds004_classify_names <- ds004_classify_spnames
+
+# Alias interno para retrocompatibilidad interna en el paquete
+classify_spnames <- ds004_classify_spnames
