@@ -10,6 +10,8 @@ conservación y autores.
 
 ``` r
 get_ficha(species, print_details = FALSE)
+
+ds004_get_ficha(species, print_details = FALSE)
 ```
 
 ## Arguments

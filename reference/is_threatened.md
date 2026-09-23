@@ -9,6 +9,8 @@ Perú (2018).
 
 ``` r
 is_threatened(species, only_threatened = FALSE)
+
+ds004_is_threatened(species, only_threatened = FALSE)
 ```
 
 ## Arguments

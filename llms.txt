@@ -97,7 +97,7 @@ library(tidyverse)
 library(perufaunads004)
 ```
 
-### 1. Clasificación y Parsing de Nombres (`classify_spnames`)
+### 1. Clasificación y Parsing de Nombres (`ds004_classify_spnames`)
 
 Descompone nombres de campo en género, epíteto específico, subespecie y
 autoría taxonómica:
@@ -111,7 +111,7 @@ nombres <- c(
   "Tingomaria hydrophila"
 )
 
-classify_spnames(nombres)
+ds004_classify_spnames(nombres)
 #> # A tibble: 4 × 6
 #>   submitted_name                  clean_name genus species subspecies authorship
 #>   <chr>                           <chr>      <chr> <chr>   <chr>      <chr>     
@@ -290,19 +290,20 @@ El paquete incluye cuatro viñetas temáticas detalladas:
 
 ## All functions
 
-- [`classify_spnames()`](https://paulesantos.github.io/perufaunads004/reference/classify_spnames.md)
-  : Clasificar y descomponer nombres científicos de especies
 - [`ds004_fauna`](https://paulesantos.github.io/perufaunads004/reference/ds004_fauna.md)
   : Lista de Fauna Silvestre Legalmente Protegida (DS 004-2014-MINAGRI)
 - [`fauna_backbone`](https://paulesantos.github.io/perufaunads004/reference/fauna_backbone.md)
   : Backbone Consolidado de Fauna Amenazada del Perú
 - [`fauna_matching()`](https://paulesantos.github.io/perufaunads004/reference/fauna_matching.md)
+  [`ds004_match()`](https://paulesantos.github.io/perufaunads004/reference/fauna_matching.md)
   : Reconciliación y validación de nombres taxonómicos de fauna
   silvestre
 - [`get_ficha()`](https://paulesantos.github.io/perufaunads004/reference/get_ficha.md)
+  [`ds004_get_ficha()`](https://paulesantos.github.io/perufaunads004/reference/get_ficha.md)
   : Obtener fichas técnicas del Libro Rojo de la Fauna Silvestre
   Amenazada
 - [`is_threatened()`](https://paulesantos.github.io/perufaunads004/reference/is_threatened.md)
+  [`ds004_is_threatened()`](https://paulesantos.github.io/perufaunads004/reference/is_threatened.md)
   : Verificar si una especie está categorizada como amenazada
 - [`libro_rojo_especies`](https://paulesantos.github.io/perufaunads004/reference/libro_rojo_especies.md)
   : Especies de Fauna Silvestre del Libro Rojo (SERFOR, 2018)

@@ -34,13 +34,12 @@ El paquete está diseñado para resolver las tareas cotidianas que
 enfrentan biólogos, consultores ambientales (elaboración de EIA, DIA,
 PMA), investigadores académicos y gestores del SINANPE (SERNANP).
 
-### Paso 1: Parsing y Clasificación de Nombres (`classify_spnames`)
+### Paso 1: Parsing y Clasificación de Nombres (`ds004_classify_spnames`)
 
 A menudo los inventarios de campo o bases de datos históricas contienen
 nombres científicos con autorías, años, comillas o epítetos
-subespecíficos.
-[`classify_spnames()`](https://paulesantos.github.io/perufaunads004/reference/classify_spnames.md)
-descompone y estandariza cada componente:
+subespecíficos. `ds004_classify_spnames()` descompone y estandariza cada
+componente:
 
 ``` r
 
@@ -52,7 +51,7 @@ nombres_inventario <- c(
   "Tingomaria hydrophila"
 )
 
-clasificacion <- classify_spnames(nombres_inventario)
+clasificacion <- ds004_classify_spnames(nombres_inventario)
 clasificacion |>
   select(submitted_name, genus, species, subspecies, authorship)
 #> # A tibble: 5 × 5

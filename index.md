@@ -97,7 +97,7 @@ library(tidyverse)
 library(perufaunads004)
 ```
 
-### 1. Clasificación y Parsing de Nombres (`classify_spnames`)
+### 1. Clasificación y Parsing de Nombres (`ds004_classify_spnames`)
 
 Descompone nombres de campo en género, epíteto específico, subespecie y
 autoría taxonómica:
@@ -111,7 +111,7 @@ nombres <- c(
   "Tingomaria hydrophila"
 )
 
-classify_spnames(nombres)
+ds004_classify_spnames(nombres)
 #> # A tibble: 4 × 6
 #>   submitted_name                  clean_name genus species subspecies authorship
 #>   <chr>                           <chr>      <chr> <chr>   <chr>      <chr>     
