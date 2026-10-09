@@ -1,16 +1,17 @@
 Package: perufaunads004
-Title: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú
+Title: Taxonomic Validation and Reconciliation of Threatened Fauna of Peru
 Version: 0.1.0
 Authors@R: person(given = "Paul E.",
            family = "Santos Andrade",
            role = c("aut", "cre", "cph"),
            email = "paulefrens@gmail.com",
            comment = c(ORCID = "0000-0002-6635-0375"))
-Description: Herramientas para la reconciliación y validación de nombres científicos 
-    de especies de fauna silvestre amenazada y legalmente protegida en el Perú, 
-    según el Decreto Supremo N° 004-2014-MINAGRI y el Libro Rojo de la Fauna Silvestre 
-    Amenazada del Perú (SERFOR, 2018). Proporciona parsing de nombres taxonómicos, 
-    motor de matching jerárquico (exacto, sinónimos, difuso y de género) y acceso estructurado a fichas técnicas de conservación.
+Description: Tools for taxonomic validation and reconciliation of scientific names 
+    of threatened and legally protected wildlife species in Peru, based on Supreme 
+    Decree No. 004-2014-MINAGRI and the Red Book of Threatened Wildlife of Peru 
+    (SERFOR, 2018). Provides taxonomic name parsing, a hierarchical matching engine 
+    (exact, synonym, fuzzy, and genus-level), and structured access to conservation 
+    technical sheets.
 License: MIT + file LICENSE
 URL: https://github.com/PaulESantos/perufaunads004, https://paulesantos.github.io/perufaunads004/
 BugReports: https://github.com/PaulESantos/perufaunads004/issues

@@ -26,7 +26,9 @@ knitr::opts_chunk$set(
 **`perufaunads004`** es un paquete de R para la **validación taxonómica, reconciliación nomenclatural y consulta integral del estado de conservación de la fauna silvestre amenazada y legalmente protegida en el Perú**.
 
 Integra de manera rigurosa y unificada:
+
 1. El **Decreto Supremo N° 004-2014-MINAGRI** (lista oficial de clasificación y categorización de especies amenazadas de fauna silvestre legalmente protegidas en el Perú, con 535 taxones).
+
 2. El **Libro Rojo de la Fauna Silvestre Amenazada del Perú** (SERFOR, 2018; 548 pp.), incluyendo la evaluación técnica de 528 taxones y **381 fichas técnicas monográficas** para especies en categorías de amenaza comprobada (**CR**, **EN**, **VU**), con justificaciones biológicas, criterios UICN, mapas de distribución, presiones antrópicas y medidas de conservación.
 
 El motor de reconciliación taxonómica resuelve listas provenientes de evaluaciones de campo, inventarios biológicos o colecciones científicas mediante coincidencia exacta, resolución de sinónimos históricos, matching difuso (*fuzzy*) y resolución a nivel de género.
@@ -145,4 +147,4 @@ El paquete incluye cuatro viñetas temáticas detalladas:
 
 - **Licencia**: MIT
 - **Cita recomendada**:
-  Santos Andrade, P. E. (2026). *perufaunads004: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú*. R package version 0.1.0. https://github.com/PaulESantos/perufaunads004
+  Santos Andrade, P. E. (2026). *perufaunads004: Taxonomic Validation and Reconciliation of Threatened Fauna of Peru*. R package version 0.1.0. https://github.com/PaulESantos/perufaunads004
