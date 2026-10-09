@@ -5,15 +5,18 @@ reconciliación nomenclatural y consulta integral del estado de
 conservación de la fauna silvestre amenazada y legalmente protegida en
 el Perú**.
 
-Integra de manera rigurosa y unificada: 1. El **Decreto Supremo N°
-004-2014-MINAGRI** (lista oficial de clasificación y categorización de
-especies amenazadas de fauna silvestre legalmente protegidas en el Perú,
-con 535 taxones). 2. El **Libro Rojo de la Fauna Silvestre Amenazada del
-Perú** (SERFOR, 2018; 548 pp.), incluyendo la evaluación técnica de 528
-taxones y **381 fichas técnicas monográficas** para especies en
-categorías de amenaza comprobada (**CR**, **EN**, **VU**), con
-justificaciones biológicas, criterios UICN, mapas de distribución,
-presiones antrópicas y medidas de conservación.
+Integra de manera rigurosa y unificada:
+
+1.  El **Decreto Supremo N° 004-2014-MINAGRI** (lista oficial de
+    clasificación y categorización de especies amenazadas de fauna
+    silvestre legalmente protegidas en el Perú, con 535 taxones).
+
+2.  El **Libro Rojo de la Fauna Silvestre Amenazada del Perú** (SERFOR,
+    2018; 548 pp.), incluyendo la evaluación técnica de 528 taxones y
+    **381 fichas técnicas monográficas** para especies en categorías de
+    amenaza comprobada (**CR**, **EN**, **VU**), con justificaciones
+    biológicas, criterios UICN, mapas de distribución, presiones
+    antrópicas y medidas de conservación.
 
 El motor de reconciliación taxonómica resuelve listas provenientes de
 evaluaciones de campo, inventarios biológicos o colecciones científicas
@@ -165,59 +168,63 @@ ficha_oso <- get_ficha("Tremarctos ornatus")
 
 # O imprimir en consola con formato enriquecido mediante cli:
 get_ficha("Penelope albipennis", print_details = TRUE)
-#> ── Penelope albipennis Taczanowski, 1878 ───────────────────────────────────────
-#> ℹ Categoría: CR / C2a, D
-#> ℹ Taxonomía: Aves | Galliformes | Cracidae
-#> ℹ Nombre común: Pava de ala blanca, pava aliblanca
-#>   
-#> ✔ Justificación: Esta ave se encuentra en un hábitat frágil y se distribuye en
-#>   forma fragmentada en un área de distribución de aproximadamente 1500 km2. El
-#>   hábitat sufre de intensas sequías y cada cierto tiempo del fenómeno de El
-#>   Niño con lluvias extremas. El número de individuos adultos y reproductores no
-#>   supera los 250 ejemplares.
-#>   
-#> ✔ Distribución: Endémica peruana. Entre los 5º 25’ S - 79º 55’ W al norte y los
-#>   6º 39’ 25” S - 79º 22’ 30” W al sur, dentro del bosque seco ecuatorial de la
-#>   región tumbesina, en la vertiente occidental de la cadena principal de los
-#>   Andes, en los departamentos de Piura, Lambayeque y Cajamarca.
-#>   Altitudinalmente, se le encuentra principalmente entre los 300 y 1100 m,
-#>   aunque ha sido reportada hasta los 1400 m.
-#>   
-#> ! Amenazas: De acuerdo con el Plan Nacional para la Conservación de la Pava
-#>   Aliblanca (Serfor, 2016), la problemática de la especie incluye caza y
-#>   captura ilegal por parte de cazadores foráneos y comuneros, deforestación por
-#>   actividades antrópicas y fragmentación de hábitat. La deforestación se
-#>   produce por expansión de la frontera agrícola, mala práctica ganadera, tala
-#>   del bosque natural para leña, carbón, o elaboración de artesanías,
-#>   concesiones mineras, reducción de los ojos de agua o “jagueyes” debido a
-#>   sobreexplotación agrícola. La fragmentación de hábitat proviene de la
-#>   construcción de carreteras e incremento de tránsito vehicular, que generan
-#>   barreras que afectan la dispersión y promueven el asentamiento de poblaciones
-#>   humanas. Por otro lado, esta pava posee una serie de características
-#>   biológicas que incrementan su sensibilidad frente a amenazas externas, como
-#>   un ciclo que incluye una sola reproducción al año, monogamia y comportamiento
-#>   territorial, nidada pequeña (uno a tres huevos o polluelos por pareja al
-#>   año), madurez sexual tardía y una conducta evasiva y susceptible al estrés.
-#>   
-#> ✔ Conservación: La especie y su hábitat están legalmente protegidos en el
-#>   Refugio de Vida Silvestre Laquipampa, el Área de Conservación Regional Bosque
-#>   Moyán-Palacios, el Área de Conservación Regional Bosques Secos de Salitral-
-#>   Huarmaca y el Área de Conservación Privada Chaparrí. Es manejada en
-#>   cautiverio, y se contó con un programa de reintroducción entre 2001-2007.
-#>   Además, cuenta con un Plan Nacional para su Conservación publicado en el 2016
-#>   y válido entre el 2016 y 2021 (Serfor, 2016). Se sugiere ampliar el
-#>   conocimiento sobre la especie, su hábitat y el manejo en cautiverio, evitar
-#>   la caza y captura de ejemplares de pava aliblanca y reducir la deforestación
-#>   y fragmentación del hábitat (Serfor, 2016). Además, se recomienda continuar
-#>   con las campañas de educación ambiental (Riva, 2009), asegurar fondos para
-#>   los zoocriaderos y reflotar el zoocriadero Bárbara D´Achille con apoyo
-#>   privado, realizar un studbook de los ejemplares en cautiverio,
-#>   internacionalizar el apoyo a la cría en cautiverio con participación de
-#>   zoológicos y entidades que permitan su sostenibilidad en el tiempo y
-#>   confirmar la existencia de la población del Marañón (Mark, 2011).
-#>   
-#> ℹ Autores: V. R. Díaz, F. Angulo
-#> ────────────────────────────────────────────────────────────────────────────────
+#> ── FICHA TÉCNICA • Penelope albipennis ─────────────────────────────────────────
+#> • Especie: Penelope albipennis Taczanowski, 1878
+#> • Nombre común: Pava de ala blanca, pava aliblanca
+#> • Categoría Libro Rojo: [CR] CR / C2a, D
+#> • Jerarquía taxonómica: Aves (Clase Aves) → Galliformes → Cracidae
+#> 
+#> ℹ Justificación Técnica de la Categorización
+#> Esta ave se encuentra en un hábitat frágil y se distribuye en forma fragmentada
+#> en un área de distribución de aproximadamente 1500 km2. El hábitat sufre de
+#> intensas sequías y cada cierto tiempo del fenómeno de El Niño con lluvias
+#> extremas. El número de individuos adultos y reproductores no supera los 250
+#> ejemplares.
+#> 
+#> ℹ Distribución Geográfica y Localidades
+#> Endémica peruana. Entre los 5º 25’ S - 79º 55’ W al norte y los 6º 39’ 25” S -
+#> 79º 22’ 30” W al sur, dentro del bosque seco ecuatorial de la región tumbesina,
+#> en la vertiente occidental de la cadena principal de los Andes, en los
+#> departamentos de Piura, Lambayeque y Cajamarca. Altitudinalmente, se le
+#> encuentra principalmente entre los 300 y 1100 m, aunque ha sido reportada hasta
+#> los 1400 m.
+#> 
+#> ✖ Principales Amenazas y Presiones Antrópicas
+#> De acuerdo con el Plan Nacional para la Conservación de la Pava Aliblanca
+#> (Serfor, 2016), la problemática de la especie incluye caza y captura ilegal por
+#> parte de cazadores foráneos y comuneros, deforestación por actividades
+#> antrópicas y fragmentación de hábitat. La deforestación se produce por
+#> expansión de la frontera agrícola, mala práctica ganadera, tala del bosque
+#> natural para leña, carbón, o elaboración de artesanías, concesiones mineras,
+#> reducción de los ojos de agua o “jagueyes” debido a sobreexplotación agrícola.
+#> La fragmentación de hábitat proviene de la construcción de carreteras e
+#> incremento de tránsito vehicular, que generan barreras que afectan la
+#> dispersión y promueven el asentamiento de poblaciones humanas. Por otro lado,
+#> esta pava posee una serie de características biológicas que incrementan su
+#> sensibilidad frente a amenazas externas, como un ciclo que incluye una sola
+#> reproducción al año, monogamia y comportamiento territorial, nidada pequeña
+#> (uno a tres huevos o polluelos por pareja al año), madurez sexual tardía y una
+#> conducta evasiva y susceptible al estrés.
+#> 
+#> ✔ Medidas de Conservación y Representatividad en el SINANPE
+#> La especie y su hábitat están legalmente protegidos en el Refugio de Vida
+#> Silvestre Laquipampa, el Área de Conservación Regional Bosque Moyán-Palacios,
+#> el Área de Conservación Regional Bosques Secos de Salitral- Huarmaca y el Área
+#> de Conservación Privada Chaparrí. Es manejada en cautiverio, y se contó con un
+#> programa de reintroducción entre 2001-2007. Además, cuenta con un Plan Nacional
+#> para su Conservación publicado en el 2016 y válido entre el 2016 y 2021
+#> (Serfor, 2016). Se sugiere ampliar el conocimiento sobre la especie, su hábitat
+#> y el manejo en cautiverio, evitar la caza y captura de ejemplares de pava
+#> aliblanca y reducir la deforestación y fragmentación del hábitat (Serfor,
+#> 2016). Además, se recomienda continuar con las campañas de educación ambiental
+#> (Riva, 2009), asegurar fondos para los zoocriaderos y reflotar el zoocriadero
+#> Bárbara D´Achille con apoyo privado, realizar un studbook de los ejemplares en
+#> cautiverio, internacionalizar el apoyo a la cría en cautiverio con
+#> participación de zoológicos y entidades que permitan su sostenibilidad en el
+#> tiempo y confirmar la existencia de la población del Marañón (Mark, 2011).
+#> 
+#> ℹ Especialistas autores: V. R. Díaz, F. Angulo
+#> ───────── SERFOR (2018) • Libro Rojo de la Fauna Silvestre Amenazada del Perú ──
 #> # A tibble: 1 × 17
 #>   genus    species    subespecie species_autor class_name order_name family_name
 #>   <chr>    <chr>      <chr>      <chr>         <chr>      <chr>      <chr>      
@@ -283,5 +290,6 @@ El paquete incluye cuatro viñetas temáticas detalladas:
 
 - **Licencia**: MIT
 - **Cita recomendada**: Santos Andrade, P. E. (2026). *perufaunads004:
-  Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú*. R
-  package version 0.1.0. <https://github.com/PaulESantos/perufaunads004>
+  Taxonomic Validation and Reconciliation of Threatened Fauna of Peru*.
+  R package version 0.1.0.
+  <https://github.com/PaulESantos/perufaunads004>

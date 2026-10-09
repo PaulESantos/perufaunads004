@@ -11,12 +11,12 @@
 Source:
 [`DESCRIPTION`](https://github.com/PaulESantos/perufaunads004/blob/main/DESCRIPTION)
 
-Santos Andrade P (2026). *perufaunads004: Validación y Reconciliación
-Taxonómica de Fauna Amenazada del Perú*. R package version 0.1.0,
+Santos Andrade P (2026). *perufaunads004: Taxonomic Validation and
+Reconciliation of Threatened Fauna of Peru*. R package version 0.1.0,
 <https://github.com/PaulESantos/perufaunads004>.
 
     @Manual{,
-      title = {perufaunads004: Validación y Reconciliación Taxonómica de Fauna Amenazada del Perú},
+      title = {perufaunads004: Taxonomic Validation and Reconciliation of Threatened Fauna of Peru},
       author = {Paul E. {Santos Andrade}},
       year = {2026},
       note = {R package version 0.1.0},
