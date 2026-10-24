@@ -9,7 +9,7 @@ Authors@R: person(given = "Paul E.",
 Description: Taxonomic validation and reconciliation of scientific names
     of threatened and legally protected wildlife species in Peru, based on
     Supreme Decree No. 004-2014-MINAGRI
-    (MINAGRI, 2014) <https://busquedas.elperuano.pe/normaslegales/decreto-supremo-que-aprueba-la-actualizacion-de-la-lista-de-decreto-supremo-n-004-2014-minagri-1041274-5/>
+    (MINAGRI, 2014) <https://www.midagri.gob.pe/portal/decreto-supremo/ds-2014/10837-decreto-supremo-n-004-2014-minagri>
     and the "Libro Rojo de la Fauna Silvestre Amenazada del Peru"
     (SERFOR, 2018, ISBN:978-612-46908-2-2).
     Provides taxonomic name parsing, a hierarchical matching engine
