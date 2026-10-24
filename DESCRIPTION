@@ -6,12 +6,15 @@ Authors@R: person(given = "Paul E.",
            role = c("aut", "cre", "cph"),
            email = "paulefrens@gmail.com",
            comment = c(ORCID = "0000-0002-6635-0375"))
-Description: Tools for taxonomic validation and reconciliation of scientific names 
-    of threatened and legally protected wildlife species in Peru, based on Supreme 
-    Decree No. 004-2014-MINAGRI and the Red Book of Threatened Wildlife of Peru 
-    (SERFOR, 2018). Provides taxonomic name parsing, a hierarchical matching engine 
-    (exact, synonym, fuzzy, and genus-level), and structured access to conservation 
-    technical sheets.
+Description: Taxonomic validation and reconciliation of scientific names
+    of threatened and legally protected wildlife species in Peru, based on
+    Supreme Decree No. 004-2014-MINAGRI
+    (MINAGRI, 2014) <https://busquedas.elperuano.pe/normaslegales/decreto-supremo-que-aprueba-la-actualizacion-de-la-lista-de-decreto-supremo-n-004-2014-minagri-1041274-5/>
+    and the "Libro Rojo de la Fauna Silvestre Amenazada del Peru"
+    (SERFOR, 2018, ISBN:978-612-46908-2-2).
+    Provides taxonomic name parsing, a hierarchical matching engine
+    (exact, synonym, fuzzy, and genus-level), and structured access to
+    conservation technical sheets.
 License: MIT + file LICENSE
 URL: https://github.com/PaulESantos/perufaunads004, https://paulesantos.github.io/perufaunads004/
 BugReports: https://github.com/PaulESantos/perufaunads004/issues
@@ -37,4 +40,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
